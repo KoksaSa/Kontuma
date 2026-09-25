@@ -1,4 +1,5 @@
 # KONTUMA — Sheet Metal Bending Simulation
+<img src="./photo/3D симуляция гибки.png" alt="3D bending simulation" width="700">
 
 A Windows application for preparing and simulating sheet metal bending on CNC press brakes.
 
