@@ -1,40 +1,40 @@
 # KONTUMA — Landing Page
 
-Одностраничный сайт-презентация B2B-программы **KONTUMA** — системы подготовки и симуляции гибки листового металла на листогибочных прессах с ЧПУ.
+A single-page marketing website for **KONTUMA** — a Windows application for sheet metal bending preparation and simulation on CNC press brakes.
 
-🌐 **Живая версия:** https://koksasa.github.io/Kontuma/
+🌐 **Live version:** https://koksasa.github.io/Kontuma/
 
-## О продукте
+## About the product
 
-KONTUMA — приложение для Windows, которое закрывает полный цикл работы технолога:
-от DXF/STEP-файла детали до готовой карты гибки и пошаговой инструкции оператору на планшете в цеху.
+KONTUMA closes the full workflow of a bending technologist:
+from a DXF/STEP part file to a ready bending map and a step-by-step operator instruction on a shop-floor tablet.
 
-- Импорт DXF и STEP (OpenCascade)
-- 3D-симуляция гибки
-- Авто-расстановка штампов
-- Проверка коллизий (пуансон, матрица, станок, пол)
-- Расчёт усилия и упора с K-фактором
-- Циклограмма гибки + экспорт в Excel
-- PDF-паспорт + файл `.opjob` для планшета оператора
+- DXF and STEP import (OpenCascade)
+- 3D bending simulation
+- Automatic tooling placement
+- Collision detection (punch, die, machine, floor)
+- Force and backgauge calculation with K-factor
+- Bending cycle time analysis + Excel export
+- PDF passport + `.opjob` file for the operator tablet
 
-## Тарифы
+## Pricing
 
-| Тариф | Цена | Устройств | Поддержка |
+| Plan | Price | Seats | Support |
 |---|---|---|---|
-| Базовый | 20 000 ₽ | 1 | — |
-| Парный | 25 000 ₽ | 2 | — |
-| Цеховой | 35 000 ₽ | 4 | 2 недели |
+| Basic | 20 000 ₽ | 1 | — |
+| Duo | 25 000 ₽ | 2 | — |
+| Workshop | 35 000 ₽ | 4 | 2 weeks |
 
-Все цены указаны без НДС. Лицензия бессрочная, обновления включены на 1 год.
-Пробный период 14 дней — бесплатно, без карты.
+All prices exclude VAT. Perpetual license, updates included for 1 year.
+14-day free trial — no credit card required.
 
-## Технологии
+## Tech stack
 
-- Чистый HTML + CSS + Vanilla JS
-- Без фреймворков, без CDN, работает офлайн
-- Тёмная тема `#0b1220`, акценты `#30d158` / `#64d2ff`
-- Адаптив: desktop / tablet / mobile
-- Плавные анимации появления при скролле
-- Интерактивный калькулятор окупаемости
+- Pure HTML + CSS + Vanilla JS
+- No frameworks, no CDN — works fully offline
+- Dark theme `#0b1220`, accents `#30d158` / `#64d2ff`
+- Responsive: desktop / tablet / mobile
+- Scroll-reveal animations
+- Interactive ROI calculator
 
-## Структура
+## Project structure
