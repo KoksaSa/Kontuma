@@ -1,0 +1,2360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KONTUMA — гибка без переделок | Приложение для Windows: симуляция гибки листового металла</title>
+<meta name="description" content="KONTUMA — приложение для Windows: подготовка и симуляция гибки листового металла на листогибочных прессах с ЧПУ. От DXF/STEP до карты гибки и планшета оператора за 2 минуты.">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARoSURBVFhH7VZbbxtFGN0nxBu/gRcEPwDUIlQJ8QLtQxCiNGlJWxKBCKixAJeoRCXBAlWtGpdGpShIUECoCB5QoVJBVUtKCb2kkIoqJY4d2/El9tpJNl6v1+td23vQNzN78Spc3njAIx3NaHZnvjPnO3ORpG7plm75r4uuxrfYdjmkKfGQpsZDuroUQMqrNV/b6Wd94tu/gTs2FbJtJSTVlMUJsLIOQAGwAaACQBWoBtqbQQOgA6htAvrmwD+G5gMkQ01EKHBdS6JeJaRg1DICWTT0LAyd1x5yvL+W4e16HqZRgGmsoFFfQYPVeQ7xL68JztzLjIQgUIFRS8PQUhw6TZz1JnHBA6BdAuyy2w+sMfWajSL7bjYKnIQhand8DgaRqGVhaERAg2RoyQgxIUYsONVOcDGJ2SgKyGi3FYx/fBZPj05AreaYzN/NXMWjA6MY/+QsLGsVlim7//OaiPjIMBKZAAFtWQTPiOA8cMMoouEQMGUm2/aDR3HPEy8yv0zPzUJ6ZA8e2PUG0oUE2q1VFpiPIQJOm+Yq+JTIMvKS7qaAE2DSu/J1giahf3cejuL+3jAuXPsZ0tZ+PNQXhrxOkiriPy+wC1qIqwD5ihSokQdIgWonAcpjkIBYERHY885J3Pv4IO7b/gpen/wUayr5gAf3VsvhpIGTIAVWhIGJsEtARYOCM1f78u842p2IE+gdOwFp6z6MTE5h6v0IksnbrN+vFB/j8wERYiYWCrgeEAScreEo4LL1rYqnYAN9kVPof/sY3h0L49DIMPoGBpFY4iQMg3ZBpwK87ZjQr4CPAK2etuLmHvBWZLcVfHn+W/Tu24vJ0ydhaGlMfhDFzr37cXfhFlpNMqFDIOgjh0BOKEApYLtAeEBL8y0YIGBaJViEVpmdeF9/8wWip6L8dGuTKmVMnDiCz7/6jJ1yVrPMdozZLHm5d+AeTm4KaBd4KfDOgE4D1tUsNDmB6kqMBaBU1OQ4Kst3ocsJtOgkrZCHCjBqeYa6mvHtAD6XUc+zGJ4CLgHaBSIFwoRmqwStFMelnn7MRY5gbuw9zIZHMf3MfswOj+DXt8Zx9fmXcevgYWTOn8PlHbtx49UwZgYOYGHqI1zu6Yea/wNWe9WngOOBgAJ1LY06Hcd0VgsCbVQgX/sR5x7chuvDb+Lma4dwY3gEV54bxPdbdmDh9IeInzmD+WNR/DJwANPPvoAftvXg4pO78NPul3DhsadQuHIRLfKYowIpIO4aHwFxFzDQSZhjBCyzBK24yLCRuoPizCWszd+ErqRRLcSgZuZRKy+hkr4D+fo0NEpJ8ncosd+gxG8z9bTCIiyr7DsH6BT8KwIddwHdcjlYloxmu8zQwhqadhlWU4bVklltWkXWbmKNSU01g73KTGuRER33+1bP74IqJL0SO87fA/QOcN4ChM3ufP+9HrzfnTfB370L/G8B8R7QK7GHbbs0pFfiQ3plSdSiXQ0iLRDs93/7J1AMPsa214eCL7Ru6Zb/X/kTFL6PQVb3msAAAAAASUVORK5CYII=">
+<style>
+/* ============================================================
+   ПЕРЕМЕННЫЕ И БАЗА
+   ============================================================ */
+:root{
+  --bg:#0b1220;
+  --bg-soft:#0e1729;
+  --panel:#111c31;
+  --panel-2:#16223a;
+  --border:rgba(255,255,255,.08);
+  --border-strong:rgba(255,255,255,.14);
+  --text:#e5e7eb;
+  --muted:#93a1b5;
+  --muted-2:#6b7a90;
+  --green:#30d158;
+  --blue:#64d2ff;
+  --red:#ff453a;
+  --amber:#ffb020;
+  --radius:12px;
+  --radius-lg:18px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --shadow-lg:0 24px 60px rgba(0,0,0,.5);
+  --container:1200px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+img{max-width:100%;display:block}
+
+a{color:inherit;text-decoration:none}
+
+h1,h2,h3,h4{margin:0;line-height:1.2;font-weight:700;letter-spacing:-.02em}
+
+p{margin:0}
+
+ul{margin:0;padding:0;list-style:none}
+
+button,input{font-family:inherit;font-size:inherit}
+
+::selection{background:rgba(48,209,88,.3)}
+
+/* ============================================================
+   СЕТКА
+   ============================================================ */
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 24px;
+}
+
+.section{padding:96px 0;position:relative}
+
+.section-head{max-width:760px;margin:0 auto 56px;text-align:center}
+
+.section-head h2{
+  font-size:clamp(26px,3.6vw,40px);
+  margin-bottom:16px;
+}
+
+.section-head p{
+  color:var(--muted);
+  font-size:clamp(15px,1.6vw,17px);
+}
+
+.eyebrow{
+  display:inline-block;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--blue);
+  margin-bottom:14px;
+}
+
+.grad-text{
+  background:linear-gradient(100deg,var(--green),var(--blue));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+/* ============================================================
+   КНОПКИ
+   ============================================================ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 26px;
+  border-radius:var(--radius);
+  border:1px solid transparent;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  transition:transform .18s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease;
+  white-space:nowrap;
+}
+
+.btn:active{transform:translateY(1px)}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--green),#22b04a);
+  color:#04180b;
+  box-shadow:0 8px 24px rgba(48,209,88,.28);
+}
+.btn-primary:hover{
+  box-shadow:0 12px 34px rgba(48,209,88,.42);
+  transform:translateY(-2px);
+}
+
+.btn-ghost{
+  background:rgba(255,255,255,.04);
+  border-color:var(--border-strong);
+  color:var(--text);
+}
+.btn-ghost:hover{
+  background:rgba(255,255,255,.09);
+  border-color:rgba(255,255,255,.28);
+  transform:translateY(-2px);
+}
+
+.btn-blue{
+  background:linear-gradient(135deg,var(--blue),#2f9fd6);
+  color:#04141d;
+  box-shadow:0 8px 24px rgba(100,210,255,.25);
+}
+.btn-blue:hover{
+  box-shadow:0 12px 34px rgba(100,210,255,.4);
+  transform:translateY(-2px);
+}
+
+.btn-block{width:100%}
+
+/* ============================================================
+   ХЕДЕР
+   ============================================================ */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(11,18,32,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  height:68px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  font-size:19px;
+  letter-spacing:.02em;
+}
+
+.logo-mark{
+  width:32px;height:32px;
+  border-radius:9px;
+  background:linear-gradient(135deg,var(--green),var(--blue));
+  display:grid;place-items:center;
+  color:#04180b;
+  font-size:15px;
+  font-weight:900;
+  box-shadow:0 6px 18px rgba(48,209,88,.3);
+}
+
+/* Логотип-изображение (фирменный знак KONTUMA) */
+.logo-mark-img{
+  width:36px;
+  height:36px;
+  flex:none;
+  object-fit:contain;
+  border-radius:9px;
+  background:rgba(255,255,255,.04);
+  padding:3px;
+  box-shadow:0 6px 18px rgba(100,210,255,.18);
+}
+
+.logo small{
+  display:block;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.16em;
+  color:var(--muted-2);
+  text-transform:uppercase;
+  line-height:1;
+  margin-top:2px;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  font-size:14.5px;
+  color:var(--muted);
+}
+.nav a{transition:color .2s ease}
+.nav a:hover{color:var(--text)}
+
+.header-cta{display:flex;align-items:center;gap:12px}
+.header-cta .btn{padding:10px 20px;font-size:14px}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  min-height:min(88vh,760px);
+  display:flex;
+  align-items:center;
+  padding:80px 0 70px;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(900px 500px at 78% 18%,rgba(100,210,255,.16),transparent 62%),
+    radial-gradient(800px 520px at 12% 82%,rgba(48,209,88,.14),transparent 60%),
+    linear-gradient(160deg,#0b1220 0%,#101c31 55%,#0b1220 100%);
+  z-index:-3;
+}
+
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('./screens/screen-01-hero.jpg');
+  background-size:cover;
+  background-position:center 40%;
+  filter:brightness(.42) saturate(.85);
+  z-index:-2;
+}
+
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(11,18,32,.96) 0%,rgba(11,18,32,.86) 42%,rgba(11,18,32,.55) 100%),
+    linear-gradient(180deg,rgba(11,18,32,.75) 0%,rgba(11,18,32,.35) 40%,rgba(11,18,32,.98) 100%);
+  z-index:-1;
+}
+
+.hero-inner{max-width:760px}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 15px 7px 10px;
+  border-radius:999px;
+  background:rgba(100,210,255,.1);
+  border:1px solid rgba(100,210,255,.28);
+  color:var(--blue);
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:26px;
+}
+.hero-badge .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 0 4px rgba(48,209,88,.18);
+  animation:pulse 2.2s infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 4px rgba(48,209,88,.18)}
+  50%{box-shadow:0 0 0 8px rgba(48,209,88,.06)}
+}
+
+.hero h1{
+  font-size:clamp(34px,6vw,64px);
+  line-height:1.05;
+  letter-spacing:-.035em;
+  margin-bottom:22px;
+}
+
+.hero-sub{
+  font-size:clamp(16px,1.9vw,19px);
+  color:var(--muted);
+  max-width:620px;
+  margin-bottom:34px;
+}
+
+.hero-cta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-bottom:36px;
+}
+
+.trust{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.trust li{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:9px 16px;
+  border-radius:999px;
+  background:rgba(255,255,255,.045);
+  border:1px solid var(--border);
+  font-size:13.5px;
+  color:var(--muted);
+  font-weight:500;
+}
+
+.trust li svg{
+  width:15px;height:15px;
+  color:var(--green);
+  flex:none;
+}
+
+/* ============================================================
+   РАМКА-БРАУЗЕР ДЛЯ СКРИНШОТОВ
+   ============================================================ */
+.shot{
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:#0a101c;
+  border:1px solid var(--border-strong);
+  box-shadow:var(--shadow);
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+
+.shot:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+  border-color:rgba(100,210,255,.35);
+}
+
+.shot-bar{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:10px 13px;
+  background:linear-gradient(180deg,#182338,#131d30);
+  border-bottom:1px solid var(--border);
+}
+
+.shot-bar i{
+  width:10px;height:10px;
+  border-radius:50%;
+  display:block;
+  flex:none;
+}
+.shot-bar i:nth-child(1){background:#ff5f57}
+.shot-bar i:nth-child(2){background:#febc2e}
+.shot-bar i:nth-child(3){background:#28c840}
+
+.shot-bar span{
+  margin-left:8px;
+  font-size:11px;
+  color:var(--muted-2);
+  letter-spacing:.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.shot-body{
+  position:relative;
+  aspect-ratio:16/10;
+  background:#0a101c;
+}
+
+.shot-body img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top left;
+}
+
+.shot-ph{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:20px;
+  background:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 12px,transparent 12px 24px),
+    radial-gradient(400px 220px at 50% 35%,rgba(100,210,255,.09),transparent 70%),
+    #0d1524;
+}
+
+.shot-ph::after{
+  content:attr(data-label);
+  font-size:12px;
+  color:var(--muted-2);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  border:1px dashed var(--border-strong);
+  padding:9px 16px;
+  border-radius:8px;
+  background:rgba(0,0,0,.25);
+}
+
+/* ============================================================
+   ПРОБЛЕМА → РЕШЕНИЕ
+   ============================================================ */
+.ps-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+}
+
+.ps-col{
+  padding:34px 32px;
+  border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+  background:var(--panel);
+  position:relative;
+  overflow:hidden;
+}
+
+.ps-col::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+}
+
+.ps-problem::before{background:linear-gradient(90deg,var(--red),rgba(255,69,58,0))}
+.ps-solution::before{background:linear-gradient(90deg,var(--green),rgba(48,209,88,0))}
+
+.ps-col h3{
+  font-size:20px;
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.ps-col .ps-note{
+  font-size:13.5px;
+  color:var(--muted-2);
+  margin-bottom:22px;
+}
+
+.ps-icon{
+  width:34px;height:34px;
+  border-radius:9px;
+  display:grid;place-items:center;
+  flex:none;
+}
+.ps-problem .ps-icon{background:rgba(255,69,58,.13);color:var(--red)}
+.ps-solution .ps-icon{background:rgba(48,209,88,.13);color:var(--green)}
+.ps-icon svg{width:19px;height:19px}
+
+.ps-list li{
+  display:flex;
+  gap:13px;
+  padding:13px 0;
+  border-bottom:1px solid var(--border);
+  font-size:15px;
+  color:#cbd5e1;
+}
+.ps-list li:last-child{border-bottom:none;padding-bottom:0}
+
+.ps-list .mark{
+  flex:none;
+  width:20px;height:20px;
+  margin-top:2px;
+  font-size:13px;
+  line-height:20px;
+  text-align:center;
+  font-weight:700;
+}
+.ps-problem .mark{color:var(--red)}
+.ps-solution .mark{color:var(--green)}
+
+/* ============================================================
+   ВОЗМОЖНОСТИ
+   ============================================================ */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.card{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding:22px;
+  border-radius:var(--radius-lg);
+  background:linear-gradient(180deg,var(--panel),var(--bg-soft));
+  border:1px solid var(--border);
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(100,210,255,.3);
+  box-shadow:0 18px 40px rgba(0,0,0,.4);
+}
+
+.card-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.card-icon{
+  width:38px;height:38px;
+  flex:none;
+  border-radius:10px;
+  display:grid;place-items:center;
+  background:rgba(100,210,255,.1);
+  border:1px solid rgba(100,210,255,.18);
+  color:var(--blue);
+}
+.card-icon svg{width:20px;height:20px}
+
+.card h3{
+  font-size:16px;
+  line-height:1.3;
+}
+
+.card p{
+  font-size:13.6px;
+  color:var(--muted);
+  flex:1;
+}
+
+.card .shot{margin-top:auto}
+.card .shot:hover{transform:none}
+
+/* ============================================================
+   ДВА ИНТЕРФЕЙСА
+   ============================================================ */
+.duo-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+}
+
+.duo-item{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.duo-label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  font-weight:600;
+}
+
+.duo-tag{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:4px 10px;
+  border-radius:999px;
+}
+.tag-blue{background:rgba(100,210,255,.13);color:var(--blue)}
+.tag-green{background:rgba(48,209,88,.13);color:var(--green)}
+
+.duo-caption{
+  font-size:13.5px;
+  color:var(--muted-2);
+}
+
+.duo-note{
+  margin-top:34px;
+  padding:22px 26px;
+  border-radius:var(--radius);
+  background:rgba(100,210,255,.055);
+  border:1px solid rgba(100,210,255,.16);
+  color:#c3d0e0;
+  font-size:15px;
+  text-align:center;
+}
+
+/* ============================================================
+   ЭКСПОРТ
+   ============================================================ */
+.export-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-bottom:44px;
+}
+
+.export-item{
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+  padding:22px 20px;
+  border-radius:var(--radius);
+  background:var(--panel);
+  border:1px solid var(--border);
+  transition:border-color .25s ease,transform .25s ease;
+}
+.export-item:hover{
+  border-color:rgba(48,209,88,.3);
+  transform:translateY(-3px);
+}
+
+.export-icon{
+  width:36px;height:36px;
+  flex:none;
+  border-radius:9px;
+  display:grid;place-items:center;
+  background:rgba(48,209,88,.1);
+  color:var(--green);
+}
+.export-icon svg{width:19px;height:19px}
+
+.export-item h4{font-size:14.5px;margin-bottom:4px}
+.export-item span{font-size:12.8px;color:var(--muted-2);display:block;line-height:1.45}
+
+.export-preview{max-width:920px;margin:0 auto}
+.export-preview figcaption{
+  text-align:center;
+  font-size:13.5px;
+  color:var(--muted-2);
+  margin-top:14px;
+}
+
+/* ============================================================
+   АККОРДЕОН
+   ============================================================ */
+.accordion{
+  max-width:900px;
+  margin:0 auto;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:var(--panel);
+}
+
+.accordion details{
+  border-bottom:1px solid var(--border);
+}
+.accordion details:last-child{border-bottom:none}
+
+.accordion summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:19px 24px;
+  cursor:pointer;
+  font-size:15.5px;
+  font-weight:500;
+  color:#d7dee8;
+  list-style:none;
+  transition:background .2s ease,color .2s ease;
+}
+.accordion summary::-webkit-details-marker{display:none}
+.accordion summary:hover{background:rgba(255,255,255,.03);color:#fff}
+
+.accordion summary::after{
+  content:"";
+  flex:none;
+  width:9px;height:9px;
+  border-right:2px solid var(--muted);
+  border-bottom:2px solid var(--muted);
+  transform:rotate(45deg);
+  transition:transform .25s ease,border-color .25s ease;
+  margin-right:4px;
+}
+
+.accordion details[open] summary::after{
+  transform:rotate(-135deg);
+  border-color:var(--green);
+}
+
+.accordion details[open] summary{
+  color:#fff;
+  background:rgba(100,210,255,.04);
+}
+
+.acc-body{
+  padding:2px 24px 24px;
+  color:var(--muted);
+  font-size:14.5px;
+}
+
+.acc-body .shot{max-width:640px;margin-top:18px}
+
+/* ============================================================
+   ЦЕНЫ
+   ============================================================ */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  align-items:start;
+}
+
+.price-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  padding:32px 28px;
+  border-radius:var(--radius-lg);
+  background:var(--panel);
+  border:1px solid var(--border);
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+
+.price-card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow-lg);
+}
+
+.price-card.featured{
+  border-color:rgba(48,209,88,.45);
+  background:linear-gradient(180deg,rgba(48,209,88,.06),var(--panel) 45%);
+  box-shadow:0 0 0 1px rgba(48,209,88,.12),0 20px 50px rgba(0,0,0,.45);
+  transform:scale(1.03);
+}
+.price-card.featured:hover{transform:scale(1.03) translateY(-5px)}
+
+.price-badge{
+  position:absolute;
+  top:-13px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:5px 16px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--green),#22b04a);
+  color:#04180b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.price-name{
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+
+.price-value{
+  font-size:34px;
+  font-weight:800;
+  letter-spacing:-.03em;
+  line-height:1.1;
+  margin-bottom:6px;
+}
+.price-value small{
+  font-size:14px;
+  font-weight:500;
+  color:var(--muted-2);
+  letter-spacing:0;
+}
+
+.price-desc{
+  font-size:13.8px;
+  color:var(--muted-2);
+  margin-bottom:24px;
+  padding-bottom:22px;
+  border-bottom:1px solid var(--border);
+}
+
+.price-list{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+  margin-bottom:28px;
+  flex:1;
+}
+
+.price-list li{
+  display:flex;
+  gap:10px;
+  font-size:14px;
+  color:#c7d2e0;
+  line-height:1.5;
+}
+
+.price-list li::before{
+  content:"✓";
+  flex:none;
+  color:var(--green);
+  font-weight:700;
+  font-size:13px;
+  margin-top:1px;
+}
+
+.price-list li.muted{
+  color:var(--muted-2);
+}
+.price-list li.muted::before{color:var(--muted-2)}
+
+.price-note{
+  max-width:800px;
+  margin:38px auto 0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px 32px;
+  font-size:13.4px;
+  color:var(--muted-2);
+}
+.price-note li{
+  display:flex;
+  gap:9px;
+  align-items:flex-start;
+}
+.price-note li::before{
+  content:"•";
+  color:var(--blue);
+  flex:none;
+}
+
+/* ============================================================
+   КАЛЬКУЛЯТОР ОКУПАЕМОСТИ
+   ============================================================ */
+.roi-card{
+  padding:32px;
+  border-radius:var(--radius-lg);
+  background:var(--panel);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.roi-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:36px;
+}
+
+.roi-controls{display:flex;flex-direction:column;gap:24px}
+
+.roi-field label{
+  display:block;
+  font-size:14px;
+  font-weight:600;
+  color:#c7d2e0;
+  margin-bottom:6px;
+}
+
+.roi-slider-row{
+  display:grid;
+  grid-template-columns:1fr 118px;
+  gap:14px;
+  align-items:center;
+}
+
+.roi-slider-row input[type="range"]{
+  width:100%;
+  min-height:44px;
+  accent-color:#30d158;
+  cursor:pointer;
+  margin:0;
+}
+
+.roi-val{
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding:6px 12px;
+  border-radius:10px;
+  background:rgba(0,0,0,.3);
+  border:1px solid var(--border);
+  font-size:14.5px;
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+
+.roi-tiles{
+  border:0;
+  margin:4px 0 0;
+  padding:0;
+}
+
+.roi-tiles legend{
+  font-size:14px;
+  font-weight:600;
+  color:#c7d2e0;
+  padding:0;
+  margin-bottom:12px;
+}
+
+.roi-tiles-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.roi-tile{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  min-height:64px;
+  padding:12px 8px;
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  background:var(--panel-2);
+  cursor:pointer;
+  text-align:center;
+  transition:border-color .2s ease,background .2s ease,box-shadow .2s ease;
+}
+
+.roi-tile:hover{border-color:var(--border-strong)}
+
+.roi-tile input{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+  margin:0;
+  cursor:pointer;
+}
+
+.roi-tile.checked{
+  border-color:rgba(48,209,88,.55);
+  background:rgba(48,209,88,.08);
+  box-shadow:0 0 0 1px rgba(48,209,88,.18);
+}
+
+.roi-tile-name{font-size:13.5px;font-weight:700}
+.roi-tile-price{font-size:12.5px;color:var(--muted-2);font-variant-numeric:tabular-nums}
+
+.roi-tile-tag{
+  position:absolute;
+  top:-9px;
+  right:10px;
+  padding:2px 9px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--green),#22b04a);
+  color:#04180b;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.roi-results{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  padding:28px 26px;
+  border-radius:var(--radius);
+  background:var(--bg-soft);
+  border:1px solid var(--border);
+}
+
+.roi-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+
+.roi-label{font-size:13.5px;color:var(--muted)}
+
+.roi-num{
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;
+  text-align:right;
+  transition:color .3s ease;
+}
+
+.roi-num.green{color:var(--green)}
+.roi-num.neutral{color:var(--text);font-size:20px}
+.roi-num.roi-muted{color:var(--muted)}
+
+.roi-row-big{
+  padding:16px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.roi-row-big .roi-label{font-size:14px;color:var(--text);font-weight:600}
+.roi-row-big .roi-num{font-size:34px}
+
+.roi-results .btn{margin-top:10px}
+
+.hint{
+  margin:22px 0 0;
+  font-size:12.5px;
+  line-height:1.55;
+  color:var(--muted-2);
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta-block{
+  position:relative;
+  padding:64px 40px;
+  border-radius:24px;
+  text-align:center;
+  overflow:hidden;
+  background:
+    radial-gradient(600px 300px at 50% 0%,rgba(48,209,88,.14),transparent 70%),
+    linear-gradient(180deg,#132038,#0e1729);
+  border:1px solid rgba(48,209,88,.22);
+}
+
+.cta-block h2{
+  font-size:clamp(24px,3.4vw,38px);
+  margin-bottom:14px;
+}
+
+.cta-block p{
+  color:var(--muted);
+  max-width:560px;
+  margin:0 auto 32px;
+}
+
+.cta-form{
+  display:flex;
+  gap:12px;
+  max-width:520px;
+  margin:0 auto;
+  flex-wrap:wrap;
+}
+
+.cta-form input{
+  flex:1 1 260px;
+  min-width:0;
+  padding:14px 18px;
+  border-radius:var(--radius);
+  border:1px solid var(--border-strong);
+  background:rgba(0,0,0,.3);
+  color:var(--text);
+  outline:none;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.cta-form input::placeholder{color:var(--muted-2)}
+.cta-form input:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 4px rgba(48,209,88,.12);
+}
+
+.cta-form .btn{flex:0 0 auto}
+
+.form-msg{
+  margin-top:16px;
+  font-size:14px;
+  color:var(--green);
+  min-height:20px;
+}
+
+.cta-fine{
+  margin-top:20px;
+  font-size:12.8px;
+  color:var(--muted-2);
+}
+
+/* ============================================================
+   ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА
+   ============================================================ */
+.lang-switch{
+  display:inline-flex;
+  gap:2px;
+  padding:4px;
+  border-radius:999px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border-strong);
+}
+
+.lang-btn{
+  padding:6px 14px;
+  border:0;
+  border-radius:999px;
+  background:transparent;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.06em;
+  line-height:1.2;
+  cursor:pointer;
+  transition:background .2s,color .2s;
+}
+
+.lang-btn:hover{color:var(--text)}
+.lang-btn.active{
+  background:linear-gradient(135deg,var(--green),#22b04a);
+  color:#04180b;
+}
+
+/* ============================================================
+   ФУТЕР
+   ============================================================ */
+.site-footer{
+  border-top:1px solid var(--border);
+  background:#080e19;
+  padding:56px 0 32px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:36px;
+  margin-bottom:40px;
+}
+
+.footer-brand p{
+  font-size:13.8px;
+  color:var(--muted-2);
+  margin-top:16px;
+  max-width:280px;
+}
+
+.footer-col h4{
+  font-size:13px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:16px;
+}
+
+.footer-col li{
+  margin-bottom:10px;
+  font-size:14px;
+  color:var(--muted-2);
+}
+.footer-col a{transition:color .2s ease}
+.footer-col a:hover{color:var(--text)}
+
+.footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  padding-top:26px;
+  border-top:1px solid var(--border);
+  font-size:13px;
+  color:var(--muted-2);
+}
+
+/* ============================================================
+   НАВЕРХ
+   ============================================================ */
+.to-top{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:90;
+  width:48px;height:48px;
+  border-radius:50%;
+  border:1px solid var(--border-strong);
+  background:rgba(17,28,49,.92);
+  backdrop-filter:blur(10px);
+  color:var(--text);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(14px);
+  transition:opacity .3s ease,transform .3s ease,visibility .3s,border-color .2s ease,background .2s ease;
+  box-shadow:var(--shadow);
+}
+.to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.to-top:hover{border-color:var(--green);background:rgba(48,209,88,.16)}
+.to-top svg{width:20px;height:20px}
+
+/* ============================================================
+   АНИМАЦИЯ ПОЯВЛЕНИЯ
+   ============================================================ */
+.reveal{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity,transform;
+}
+.reveal.visible{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+}
+
+/* ============================================================
+   АДАПТИВ
+   ============================================================ */
+@media (max-width:1199px){
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .export-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .nav{display:none}
+}
+
+@media (max-width:1023px){
+  .section{padding:72px 0}
+  .duo-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .price-card.featured{transform:none}
+  .price-card.featured:hover{transform:translateY(-5px)}
+  .roi-grid{grid-template-columns:1fr;gap:28px}
+  .ps-grid{grid-template-columns:1fr}
+  .hero{min-height:auto;padding:64px 0 56px}
+  .hero-overlay{
+    background:
+      linear-gradient(180deg,rgba(11,18,32,.92) 0%,rgba(11,18,32,.8) 45%,rgba(11,18,32,.98) 100%);
+  }
+}
+
+@media (max-width:767px){
+  .container{padding:0 18px}
+  .section{padding:60px 0}
+  .section-head{margin-bottom:38px}
+
+  .header-inner{height:60px}
+  .logo{font-size:17px}
+  .logo small{display:none}
+  .header-cta .btn{padding:9px 16px;font-size:13px}
+  .lang-btn{padding:5px 11px;font-size:12px}
+  .lang-switch{flex:none}
+
+  .cards-grid{grid-template-columns:1fr}
+  .export-grid{grid-template-columns:1fr}
+  .price-note{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{width:100%}
+  .trust li{font-size:12.5px;padding:8px 13px}
+
+  .cta-block{padding:44px 22px;border-radius:18px}
+  .cta-form{flex-direction:column}
+  .cta-form .btn{width:100%}
+
+  .accordion summary{padding:16px 18px;font-size:14.5px}
+  .acc-body{padding:2px 18px 20px}
+
+  .roi-card{padding:22px}
+  .roi-slider-row{grid-template-columns:1fr 96px}
+  .roi-tiles-row{grid-template-columns:1fr}
+  .roi-results{padding:22px 18px;gap:14px}
+  .roi-row-big .roi-num{font-size:28px}
+
+  .ps-col{padding:26px 22px}
+  .card{padding:18px}
+  .to-top{right:16px;bottom:16px;width:44px;height:44px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     ХЕДЕР
+     ============================================================ -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="#top">
+      <img class="logo-mark-img"
+           alt="KONTUMA"
+           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARoSURBVFhH7VZbbxtFGN0nxBu/gRcEPwDUIlQJ8QLtQxCiNGlJWxKBCKixAJeoRCXBAlWtGpdGpShIUECoCB5QoVJBVUtKCb2kkIoqJY4d2/El9tpJNl6v1+td23vQNzN78Spc3njAIx3NaHZnvjPnO3ORpG7plm75r4uuxrfYdjmkKfGQpsZDuroUQMqrNV/b6Wd94tu/gTs2FbJtJSTVlMUJsLIOQAGwAaACQBWoBtqbQQOgA6htAvrmwD+G5gMkQ01EKHBdS6JeJaRg1DICWTT0LAyd1x5yvL+W4e16HqZRgGmsoFFfQYPVeQ7xL68JztzLjIQgUIFRS8PQUhw6TZz1JnHBA6BdAuyy2w+sMfWajSL7bjYKnIQhand8DgaRqGVhaERAg2RoyQgxIUYsONVOcDGJ2SgKyGi3FYx/fBZPj05AreaYzN/NXMWjA6MY/+QsLGsVlim7//OaiPjIMBKZAAFtWQTPiOA8cMMoouEQMGUm2/aDR3HPEy8yv0zPzUJ6ZA8e2PUG0oUE2q1VFpiPIQJOm+Yq+JTIMvKS7qaAE2DSu/J1giahf3cejuL+3jAuXPsZ0tZ+PNQXhrxOkiriPy+wC1qIqwD5ihSokQdIgWonAcpjkIBYERHY885J3Pv4IO7b/gpen/wUayr5gAf3VsvhpIGTIAVWhIGJsEtARYOCM1f78u842p2IE+gdOwFp6z6MTE5h6v0IksnbrN+vFB/j8wERYiYWCrgeEAScreEo4LL1rYqnYAN9kVPof/sY3h0L49DIMPoGBpFY4iQMg3ZBpwK87ZjQr4CPAK2etuLmHvBWZLcVfHn+W/Tu24vJ0ydhaGlMfhDFzr37cXfhFlpNMqFDIOgjh0BOKEApYLtAeEBL8y0YIGBaJViEVpmdeF9/8wWip6L8dGuTKmVMnDiCz7/6jJ1yVrPMdozZLHm5d+AeTm4KaBd4KfDOgE4D1tUsNDmB6kqMBaBU1OQ4Kst3ocsJtOgkrZCHCjBqeYa6mvHtAD6XUc+zGJ4CLgHaBSIFwoRmqwStFMelnn7MRY5gbuw9zIZHMf3MfswOj+DXt8Zx9fmXcevgYWTOn8PlHbtx49UwZgYOYGHqI1zu6Yea/wNWe9WngOOBgAJ1LY06Hcd0VgsCbVQgX/sR5x7chuvDb+Lma4dwY3gEV54bxPdbdmDh9IeInzmD+WNR/DJwANPPvoAftvXg4pO78NPul3DhsadQuHIRLfKYowIpIO4aHwFxFzDQSZhjBCyzBK24yLCRuoPizCWszd+ErqRRLcSgZuZRKy+hkr4D+fo0NEpJ8ncosd+gxG8z9bTCIiyr7DsH6BT8KwIddwHdcjlYloxmu8zQwhqadhlWU4bVklltWkXWbmKNSU01g73KTGuRER33+1bP74IqJL0SO87fA/QOcN4ChM3ufP+9HrzfnTfB370L/G8B8R7QK7GHbbs0pFfiQ3plSdSiXQ0iLRDs93/7J1AMPsa214eCL7Ru6Zb/X/kTFL6PQVb3msAAAAAASUVORK5CYII=">
+      <span>KONTUMA<small>Bend&nbsp;Simulation</small></span>
+    </a>
+
+    <nav class="nav">
+      <a href="#features" data-i18n="nav.features">Возможности</a>
+      <a href="#interfaces" data-i18n="nav.interfaces">Интерфейсы</a>
+      <a href="#tech" data-i18n="nav.tech">Технологии</a>
+      <a href="#pricing" data-i18n="nav.pricing">Цены</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+
+    <div class="header-cta">
+      <div class="lang-switch" role="group" aria-label="Язык / Language">
+        <button type="button" data-lang="ru" class="lang-btn active" aria-pressed="true">RU</button>
+        <button type="button" data-lang="en" class="lang-btn" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-primary" href="#cta" data-i18n="header.cta">Попробовать бесплатно</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================================================
+       1. HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <span class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">B2B · Листогибочные прессы с ЧПУ</span></span>
+
+      <h1>KONTUMA —<br><span class="grad-text" data-i18n="hero.h1">гибка без переделок</span></h1>
+
+      <p class="hero-sub" data-i18n="hero.sub">
+        От DXF до готовой карты гибки за 2 минуты. Полноценное приложение для Windows.
+        Инструкция оператору — на планшет в цех.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#cta">
+          <span data-i18n="hero.cta1">Попробовать бесплатно</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#features">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5v-7Z"/></svg>
+          <span data-i18n="hero.cta2">Смотреть возможности</span>
+        </a>
+      </div>
+
+      <ul class="trust">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+          <span data-i18n="hero.trust1">Приложение для Windows</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+          <span data-i18n="hero.trust2">Установка за 5 минут</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+          <span data-i18n="hero.trust3">PDF + планшет оператора</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. ПРОБЛЕМА → РЕШЕНИЕ
+       ============================================================ -->
+  <section class="section" id="problem">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="ps.eyebrow">Проблема → Решение</span>
+        <h2 data-i18n="ps.h2">Что ломается на гибке — и как это убирает KONTUMA</h2>
+        <p data-i18n="ps.p">Каждая ошибка на прессе стоит металла, времени и ремонта станка. KONTUMA переносит проверку в цифру — до того, как оператор нажмёт педаль.</p>
+      </div>
+
+      <div class="ps-grid">
+        <div class="ps-col ps-problem reveal">
+          <h3>
+            <span class="ps-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 2.8 20h18.4L12 4.5Z"/><path d="M12 10v4M12 17h.01"/></svg>
+            </span>
+            <span data-i18n="ps.h31">Как обычно</span>
+          </h3>
+          <p class="ps-note" data-i18n="ps.note1">Ручной расчёт, бумажные чертежи, «а я думал, наоборот»</p>
+          <ul class="ps-list">
+            <li><span class="mark">✕</span><span data-i18n="ps.p1">Оператор сгибает не туда — деталь в брак</span></li>
+            <li><span class="mark">✕</span><span data-i18n="ps.p2">Технолог считает упор вручную в Excel — ошибки</span></li>
+            <li><span class="mark">✕</span><span data-i18n="ps.p3">Пуансон бьёт по матрице — ремонт станка</span></li>
+            <li><span class="mark">✕</span><span data-i18n="ps.p4">Отверстие близко к гибу — разрыв металла</span></li>
+            <li><span class="mark">✕</span><span data-i18n="ps.p5">Нет единого паспорта гибки — каждый делает по-своему</span></li>
+          </ul>
+        </div>
+
+        <div class="ps-col ps-solution reveal">
+          <h3>
+            <span class="ps-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            </span>
+            <span data-i18n="ps.h32">Как с KONTUMA</span>
+          </h3>
+          <p class="ps-note" data-i18n="ps.note2">Всё считается и проверяется до первого касания металла</p>
+          <ul class="ps-list">
+            <li><span class="mark">✓</span><span data-i18n="ps.s1">3D-симуляция ДО гибки на станке</span></li>
+            <li><span class="mark">✓</span><span data-i18n="ps.s2">Расчёт упора и усилия автоматически</span></li>
+            <li><span class="mark">✓</span><span data-i18n="ps.s3">Проверка коллизий в реальном времени</span></li>
+            <li><span class="mark">✓</span><span data-i18n="ps.s4">Предупреждение «отверстие близко к гибу»</span></li>
+            <li><span class="mark">✓</span><span data-i18n="ps.s5">PDF-паспорт + планшет оператора с фото каждого гиба</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. ВОЗМОЖНОСТИ
+       ============================================================ -->
+  <section class="section" id="features" style="background:linear-gradient(180deg,transparent,rgba(100,210,255,.025) 40%,transparent)">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="feat.eyebrow">Возможности</span>
+        <h2 data-i18n="feat.h2">Полный цикл — от файла до готовой детали</h2>
+        <p data-i18n="feat.p">Восемь ключевых модулей, которые закрывают работу технолога и оператора в одной системе.</p>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- КАРТОЧКА 1 -->
+        <article class="card reveal">
+          <div class="card-head">
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L8 8m4-4 4 4"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            </span>
+            <h3><span data-i18n="feat.h1">Импорт DXF и STEP</span></h3>
+          </div>
+          <p data-i18n="feat.d1">Распознаёт линии гибов по слоям и типам линий, склеивает контур, поддерживает авто-детект виртуальных гибов по микро-вырезам.</p>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.dxf">kontuma — импорт детали</span></div>
+            <div class="shot-body">
+              <div class="shot-ph" data-label="Импорт dxf и step.png"></div>
+              <img src="./photo/Импорт dxf и step.png" alt="Импорт DXF в KONTUMA: панель загрузки файла и таблица гибов детали detail.dxf" data-i18n-alt="alt.dxf" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+        </article>
+
+        <!-- КАРТОЧКА 2 -->
+        <article class="card reveal">
+          <div class="card-head">
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.6"/></svg>
+            </span>
+            <h3><span data-i18n="feat.h2">Библиотека инструмента</span></h3>
+          </div>
+          <p data-i18n="feat.d2">Пуансоны и матрицы из DXF. Отражение по X/Y/Z, привязка к станку.</p>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.tooling">kontuma — библиотека матриц</span></div>
+            <div class="shot-body">
+              <div class="shot-ph" data-label="Библиотека инструмента.png"></div>
+              <img src="./photo/Библиотека инструмента.png" alt="Библиотека инструмента KONTUMA: папки с превью матриц и таблица «Матрицы на станке»" data-i18n-alt="alt.tooling" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+        </article>
+
+        <!-- КАРТОЧКА 3 -->
+        <article class="card reveal">
+          <div class="card-head">
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
+            </span>
+            <h3><span data-i18n="feat.h3">Авто-расстановка штампов</span></h3>
+          </div>
+          <p data-i18n="feat.d3">Программа сама подбирает нужную длину пуансона и матрицы под каждый гиб, укладывает их вдоль траверсы без наложений. Учитывает гранулярность — самый короткий гиб получает самый короткий пуансон.</p>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.autoplace">kontuma — авто-расстановка</span></div>
+            <div class="shot-body">
+              <div class="shot-ph" data-label="Авторастановка штампов.png"></div>
+              <img src="./photo/Авторастановка штампов.png" alt="Авто-расстановка штампов в KONTUMA: результат «Расстановка выполнена: 5 из 5 групп»" data-i18n-alt="alt.autoplace" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+        </article>
+
+        <!-- КАРТОЧКА 4 -->
+        <article class="card reveal">
+          <div class="card-head">
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>
+            </span>
+            <h3><span data-i18n="feat.h4">3D-симуляция гибки</span></h3>
+          </div>
+          <p data-i18n="feat.d4">Плавная анимация: заготовка поворачивается, пуансон опускается, деталь гнётся. Видно, как деталь ляжет на матрицу ДО того, как оператор начнёт работу.</p>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.sim">kontuma — 3D-симуляция гибки</span></div>
+            <div class="shot-body">
+              <div class="shot-ph" data-label="3D симуляция гибки.png"></div>
+              <img src="./photo/3D симуляция гибки.png" alt="3D-симуляция гибки в KONTUMA: согнутая деталь с V-профилем на матрице, вид спереди" data-i18n-alt="alt.sim" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+        </article>
+
+        <!-- КАРТОЧКА 5 -->
+        <article class="card reveal">
+          <div class="card-head">
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 2.8 20h18.4L12 4.5Z"/><path d="M12 10v4M12 17h.01"/></svg>
+            </span>
+            <h3><span data-i18n="feat.h5">Проверка коллизий</span></h3>
+          </div>
+          <p data-i18n="feat.d5">Красная подсветка: пуансон, матрица, траверса, станина, стойки, пол. Предупреждения в таблице гибов: «заготовка упирается в пуансон», «отверстие близко к гибу». Есть кнопка сброса ложных срабатываний.</p>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.warn">kontuma — предупреждения</span></div>
+            <div class="shot-body">
+              <div class="shot-ph" data-label="Проверка колизий.png"></div>
+              <img src="./photo/Проверка колизий.png" alt="Проверка коллизий в KONTUMA: красные строки таблицы гибов и подсветка пуансона" data-i18n-alt="alt.coll" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+        </article>
+
+        <!-- КАРТОЧКА 6 -->
+        <article class="card reveal">
+          <div class="card-head">
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></svg>
+            </span>
+            <h3><span data-i18n="feat.h6">Расчёт усилия и упора</span></h3>
+          </div>
+          <p data-i18n="feat.d6">Усилие гибки в тоннах по материалу, толщине, V-раскрытию матрицы и длине гиба. Расстояние от оси станка до упора — с учётом K-фактора нейтрального слоя.</p>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.force">kontuma — усилие гибки</span></div>
+            <div class="shot-body">
+              <div class="shot-ph" data-label="Расчет усилий и упора.png"></div>
+              <img src="./photo/Расчет усилий и упора.png" alt="Панель расчёта усилия гибки в KONTUMA и колонка «Упор» в таблице гибов" data-i18n-alt="alt.force" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+        </article>
+
+        <!-- КАРТОЧКА 7 -->
+        <article class="card reveal">
+          <div class="card-head">
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            </span>
+            <h3><span data-i18n="feat.h7">Циклограмма гибки</span></h3>
+          </div>
+          <p data-i18n="feat.d7">Расчёт машинного и операторского времени: загрузка, выравнивание, правка упора, рабочий ход, съём детали. Экспорт в Excel.</p>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.cyclo">kontuma — циклограмма</span></div>
+            <div class="shot-body">
+              <div class="shot-ph" data-label="циклограмма гибки.png"></div>
+              <img src="./photo/циклограмма гибки.png" alt="Циклограмма гибки в KONTUMA: диаграмма Ганта по фазам и таблица времён" data-i18n-alt="alt.cyclo" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+        </article>
+
+        <!-- КАРТОЧКА 8 -->
+        <article class="card reveal">
+          <div class="card-head">
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg>
+            </span>
+            <h3><span data-i18n="feat.h8">Паспорт для оператора</span></h3>
+          </div>
+          <p data-i18n="feat.d8">PDF с профилями пуансона и матрицы, развёрткой, габаритами, массой и фото каждого гиба. Файл .opjob открывается на планшете в цеху — оператор видит пошаговую инструкцию с галочками прогресса.</p>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.viewer">kontuma viewer — планшет оператора</span></div>
+            <div class="shot-body">
+              <div class="shot-ph" data-label="паспорт для оператора.png"></div>
+              <img src="./photo/паспорт для оператора.png" alt="Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик прогресса и кнопка «Готово»" data-i18n-alt="alt.passport" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. ДВА ИНТЕРФЕЙСА
+       ============================================================ -->
+  <section class="section" id="interfaces">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="duo.eyebrow">Два интерфейса</span>
+        <h2 data-i18n="duo.h2">Один файл — две роли</h2>
+        <p data-i18n="duo.p">Технолог готовит задание в приложении на ПК. Оператор открывает тот же файл .opjob на планшете в цеху. Никаких бумажных чертежей и лишних согласований.</p>
+      </div>
+
+      <div class="duo-grid">
+        <div class="duo-item reveal">
+          <div class="duo-label">
+            <span class="duo-tag tag-blue" data-i18n="duo.tag1">Технолог</span>
+            <span data-i18n="duo.label1">Приложение для Windows</span>
+          </div>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span>KONTUMA — BendEditor</span></div>
+            <div class="shot-body">
+              <div class="shot-ph" data-label="Приложение для windowa.png"></div>
+              <img src="./photo/Приложение для windowa.png" alt="Редактор технолога KONTUMA: панель с деревьями «Матрица», «Пуансон», «Гибы» и 3D-вид станка с деталью" data-i18n-alt="alt.editor" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+          <p class="duo-caption" data-i18n="duo.cap1">Большой 3D-вид, панель инструмента, таблица гибов, расчёт усилия и коллизий.</p>
+        </div>
+
+        <div class="duo-item reveal">
+          <div class="duo-label">
+            <span class="duo-tag tag-green" data-i18n="duo.tag2">Оператор</span>
+            <span data-i18n="duo.label2">Планшет в цеху</span>
+          </div>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span>viewer.html — .opjob</span></div>
+            <div class="shot-body">
+              <div class="shot-ph" data-label="планшет в цеху.png"></div>
+              <img src="./photo/планшет в цеху.png" alt="Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик «3/8», зелёный прогресс-бар и синяя кнопка «Готово»" data-i18n-alt="alt.tablet" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+          <p class="duo-caption" data-i18n="duo.cap2">Плитки гибов с фото, счётчик ✅ 3/8, синяя кнопка «Готово». Интернет не нужен.</p>
+        </div>
+      </div>
+
+      <p class="duo-note reveal">
+        <span data-i18n="duo.noteA">Один файл задания</span> <strong>.opjob</strong> <span data-i18n="duo.noteB">— и технолог, и оператор работают с одной и той же версией детали. Никаких «я делал по старому чертежу».</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. ЭКСПОРТ И ИНТЕГРАЦИЯ
+       ============================================================ -->
+  <section class="section" id="export" style="background:linear-gradient(180deg,transparent,rgba(48,209,88,.025) 45%,transparent)">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="exp.eyebrow">Экспорт и интеграция</span>
+        <h2 data-i18n="exp.h2">Результат работы — в удобном формате</h2>
+        <p data-i18n="exp.p">Всё, что нужно цеху, MES и архиву технолога.</p>
+      </div>
+
+      <div class="export-grid">
+        <div class="export-item reveal">
+          <span class="export-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg>
+          </span>
+          <div>
+            <h4 data-i18n="exp.i1h">PDF-паспорт гибки</h4>
+            <span data-i18n="exp.i1s">A4, готов к печати</span>
+          </div>
+        </div>
+
+        <div class="export-item reveal">
+          <span class="export-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10M15 10v10"/></svg>
+          </span>
+          <div>
+            <h4 data-i18n="exp.i2h">Excel-таблица гибов</h4>
+            <span data-i18n="exp.i2s">Для MES / ERP</span>
+          </div>
+        </div>
+
+        <div class="export-item reveal">
+          <span class="export-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>
+          </span>
+          <div>
+            <h4 data-i18n="exp.i3h">Файл задания .opjob</h4>
+            <span data-i18n="exp.i3s">Для планшета оператора</span>
+          </div>
+        </div>
+
+        <div class="export-item reveal">
+          <span class="export-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.8"/><path d="m21 15-5-5L5 21"/></svg>
+          </span>
+          <div>
+            <h4 data-i18n="exp.i4h">Скриншот 3D-вида</h4>
+            <span data-i18n="exp.i4s">PNG для КП и документации</span>
+          </div>
+        </div>
+      </div>
+
+      <figure class="export-preview reveal">
+        <div class="shot">
+          <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.pdf">KONTUMA — PDF-паспорт гибки, стр. 1</span></div>
+          <div class="shot-body">
+            <div class="shot-ph" data-label="screen-11-pdf.jpg"></div>
+            <img src="./screens/screen-11-pdf.jpg" alt="Первая страница PDF-паспорта гибки: профили пуансона и матрицы, развёртка с номерами гибов, габариты и масса детали" data-i18n-alt="alt.pdf" loading="lazy" onerror="this.remove()">
+          </div>
+        </div>
+        <figcaption data-i18n="exp.figcap">PDF-паспорт: профили инструмента, развёртка с номерами гибов, габариты, масса и фото каждого гиба</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. ТЕХНИЧЕСКИЕ ВОЗМОЖНОСТИ
+       ============================================================ -->
+  <section class="section" id="tech">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="tech.eyebrow">Технические возможности</span>
+        <h2 data-i18n="tech.h2">Что под капотом</h2>
+        <p data-i18n="tech.p">Детали, которые важны технологу и инженеру-технологу производства.</p>
+      </div>
+
+      <div class="accordion reveal">
+
+        <details>
+          <summary data-i18n="tech.s1">Поддержка DXF (LINE, LWPOLYLINE, ARC, CIRCLE)</summary>
+          <div class="acc-body" data-i18n="tech.b1">
+            Парсер читает основные примитивы DXF, распознаёт линии гибов по слоям и типам линий, склеивает разорванный контур в замкнутый профиль. Поддерживается авто-детект виртуальных гибов по микро-вырезам.
+          </div>
+        </details>
+
+        <details>
+          <summary data-i18n="tech.s2">Парсинг STEP через OpenCascade</summary>
+          <div class="acc-body">
+            <span data-i18n="tech.b2">Загрузка объёмных моделей STEP, автоматическое построение развёртки и назначение граней на гибы. Модальное окно «Предпросмотр STEP» показывает 3D-модель с цветными маркерами гибов и номерами.</span>
+            <div class="shot">
+              <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.step">KONTUMA — предпросмотр STEP</span></div>
+              <div class="shot-body">
+                <div class="shot-ph" data-label="Поддержка step.png"></div>
+                <img src="./photo/Поддержка step.png" alt="Предпросмотр STEP в KONTUMA: 3D-модель детали с маркерами гибов и панель «Назначить грань → гиб»" data-i18n-alt="alt.step" loading="lazy" onerror="this.remove()">
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary data-i18n="tech.s3">K-фактор нейтрального слоя (0..1, пресет 0.3–0.5)</summary>
+          <div class="acc-body" data-i18n="tech.b3">
+            Гибкий параметр для расчёта длины развёртки и положения упора. Пресеты под распространённые материалы и толщины, с возможностью ручной корректировки под вашу технологию.
+          </div>
+        </details>
+
+        <details>
+          <summary data-i18n="tech.s4">Калибровка пружинения (таблица Y по материалу / толщине / углу / V)</summary>
+          <div class="acc-body" data-i18n="tech.b4">
+            Таблица коэффициентов пружинения, которая учитывается при расчёте угла подгибки. Настраивается под конкретный металл, толщину, угол гиба и V-раскрытие матрицы.
+          </div>
+        </details>
+
+        <details>
+          <summary data-i18n="tech.s5">Авто-сортировка гибов по возрастанию упора</summary>
+          <div class="acc-body" data-i18n="tech.b5">
+            Оптимальный порядок гибки, при котором деталь не мешает сама себе и не упирается в инструмент. Сортировка выполняется автоматически с возможностью ручной правки.
+          </div>
+        </details>
+
+        <details>
+          <summary data-i18n="tech.s6">Отражение лицевой, смена упора, разворот заготовки</summary>
+          <div class="acc-body" data-i18n="tech.b6">
+            Инструменты быстрой правки задания: отражение детали по лицевой стороне, смена базы упора, разворот заготовки — без повторного импорта файла.
+          </div>
+        </details>
+
+        <details>
+          <summary data-i18n="tech.s7">Кастомные размеры траверсы, станины, задних стоек с вырезами</summary>
+          <div class="acc-body" data-i18n="tech.b7">
+            Модель станка настраивается под ваш пресс: длина траверсы, габариты станины, положение задних стоек и вырезы в них. Это влияет на точность проверки коллизий.
+          </div>
+        </details>
+
+        <details>
+          <summary data-i18n="tech.s8">Сечение заготовки плоскостью (визуальный срез)</summary>
+          <div class="acc-body" data-i18n="tech.b8">
+            Инструмент визуального среза позволяет заглянуть внутрь детали и проверить положение гибов, толщину материала и зоны, скрытые от камеры.
+          </div>
+        </details>
+
+        <details>
+          <summary data-i18n="tech.s9">HUD габаритов и массы детали</summary>
+          <div class="acc-body" data-i18n="tech.b9">
+            Постоянно видимая панель с габаритами детали, площадью развёртки и расчётной массой — например «582.8 × 632.2 × 43 мм, развёртка 0.388 м², ≈ 4.60 кг».
+          </div>
+        </details>
+
+        <details>
+          <summary data-i18n="tech.s10">Автопрогон всех гибов по порядку для проверки технологом</summary>
+          <div class="acc-body" data-i18n="tech.b10">
+            Один клик — и KONTUMA последовательно проигрывает все гибы задания. Технолог видит весь процесс целиком и может поймать проблему до передачи файла в цех.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. ЦЕНЫ
+       ============================================================ -->
+  <section class="section" id="pricing" style="background:linear-gradient(180deg,transparent,rgba(100,210,255,.03) 40%,transparent)">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="pr.eyebrow">Цены</span>
+        <h2 data-i18n="pr.h2">Дешевле аналогов в десятки раз</h2>
+        <p data-i18n="pr.p">Radan, Lantek Bend, TruTops Bend стоят от $5 000 до $30 000 за рабочее место плюс ежегодная поддержка. KONTUMA — от 20 000 ₽ за устройство, бессрочная лицензия.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- БАЗОВЫЙ -->
+        <div class="price-card reveal">
+          <div class="price-name" data-i18n="pr.n1">Базовый</div>
+          <div class="price-value"><span data-i18n="pr.p1">20 000 ₽</span> <small data-i18n="pr.sm">бессрочно</small></div>
+          <p class="price-desc"><strong data-i18n="pr.dev1">1 устройство</strong><span data-i18n="pr.sup0"> · поддержка —</span></p>
+
+          <ul class="price-list">
+            <li data-i18n="pr.f1">Импорт DXF и STEP (OpenCascade)</li>
+            <li data-i18n="pr.f2">3D-симуляция гибки</li>
+            <li data-i18n="pr.f3">Библиотека пуансонов и матриц</li>
+            <li data-i18n="pr.f4">Авто-расстановка штампов</li>
+            <li data-i18n="pr.f5">Проверка коллизий (пуансон, матрица, станок, пол)</li>
+            <li data-i18n="pr.f6">Расчёт усилия и упора с K-фактором</li>
+            <li data-i18n="pr.f7">Калибровка пружинения по металлу</li>
+            <li data-i18n="pr.f8">Циклограмма гибки + экспорт в Excel</li>
+            <li data-i18n="pr.f9">PDF-паспорт + файл .opjob для планшета оператора</li>
+            <li data-i18n="pr.f10">Неограниченное число планшетов операторов</li>
+          </ul>
+
+          <a class="btn btn-primary btn-block" href="#cta" data-i18n="pr.buy">Купить</a>
+        </div>
+
+        <!-- ПАРНЫЙ -->
+        <div class="price-card reveal">
+          <div class="price-name" data-i18n="pr.n2">Парный</div>
+          <div class="price-value"><span data-i18n="pr.p2">25 000 ₽</span> <small data-i18n="pr.sm">бессрочно</small></div>
+          <p class="price-desc"><strong data-i18n="pr.dev2">2 устройства</strong><span data-i18n="pr.sup0"> · поддержка —</span></p>
+
+          <ul class="price-list">
+            <li data-i18n="pr.f1">Импорт DXF и STEP (OpenCascade)</li>
+            <li data-i18n="pr.f2">3D-симуляция гибки</li>
+            <li data-i18n="pr.f3">Библиотека пуансонов и матриц</li>
+            <li data-i18n="pr.f4">Авто-расстановка штампов</li>
+            <li data-i18n="pr.f5">Проверка коллизий (пуансон, матрица, станок, пол)</li>
+            <li data-i18n="pr.f6">Расчёт усилия и упора с K-фактором</li>
+            <li data-i18n="pr.f7">Калибровка пружинения по металлу</li>
+            <li data-i18n="pr.f8">Циклограмма гибки + экспорт в Excel</li>
+            <li data-i18n="pr.f9">PDF-паспорт + файл .opjob для планшета оператора</li>
+            <li data-i18n="pr.f10">Неограниченное число планшетов операторов</li>
+          </ul>
+
+          <a class="btn btn-primary btn-block" href="#cta" data-i18n="pr.buy">Купить</a>
+        </div>
+
+        <!-- ЦЕХОВОЙ -->
+        <div class="price-card featured reveal">
+          <div class="price-badge" data-i18n="pr.badge">Популярный</div>
+          <div class="price-name" data-i18n="pr.n3">Цеховой</div>
+          <div class="price-value"><span data-i18n="pr.p3">35 000 ₽</span> <small data-i18n="pr.sm">бессрочно</small></div>
+          <p class="price-desc"><strong data-i18n="pr.dev4">4 устройства</strong><span data-i18n="pr.sup2w"> · поддержка 2 недели</span></p>
+
+          <ul class="price-list">
+            <li data-i18n="pr.f1">Импорт DXF и STEP (OpenCascade)</li>
+            <li data-i18n="pr.f2">3D-симуляция гибки</li>
+            <li data-i18n="pr.f3">Библиотека пуансонов и матриц</li>
+            <li data-i18n="pr.f4">Авто-расстановка штампов</li>
+            <li data-i18n="pr.f5">Проверка коллизий (пуансон, матрица, станок, пол)</li>
+            <li data-i18n="pr.f6">Расчёт усилия и упора с K-фактором</li>
+            <li data-i18n="pr.f7">Калибровка пружинения по металлу</li>
+            <li data-i18n="pr.f8">Циклограмма гибки + экспорт в Excel</li>
+            <li data-i18n="pr.f9">PDF-паспорт + файл .opjob для планшета оператора</li>
+            <li data-i18n="pr.f10">Неограниченное число планшетов операторов</li>
+          </ul>
+
+          <a class="btn btn-primary btn-block" href="#cta" data-i18n="pr.buy">Купить</a>
+        </div>
+
+      </div>
+
+      <ul class="price-note reveal">
+        <li data-i18n="pr.note1">Все цены указаны без НДС.</li>
+        <li data-i18n="pr.note2">Лицензия бессрочная, обновления включены на 1 год.</li>
+        <li data-i18n="pr.note3">Продление обновлений — 15% от стоимости в год (можно не продлевать — программа продолжит работать на текущей версии).</li>
+        <li data-i18n="pr.note4">Возврат денег в течение 30 дней без вопросов.</li>
+        <li data-i18n="pr.note5">Пробный период 14 дней — бесплатно, без карты.</li>
+      </ul>
+
+          <a class="btn btn-primary btn-block" href="#cta">Купить</a>
+        </div>
+
+        <!-- ПАРНЫЙ -->
+        <div class="price-card reveal">
+          <div class="price-name">Парный</div>
+          <div class="price-value">25 000 ₽ <small>бессрочно</small></div>
+          <p class="price-desc"><strong>2 устройства</strong> · поддержка —</p>
+
+          <ul class="price-list">
+            <li>Импорт DXF и STEP (OpenCascade)</li>
+            <li>3D-симуляция гибки</li>
+            <li>Библиотека пуансонов и матриц</li>
+            <li>Авто-расстановка штампов</li>
+            <li>Проверка коллизий (пуансон, матрица, станок, пол)</li>
+            <li>Расчёт усилия и упора с K-фактором</li>
+            <li>Калибровка пружинения по металлу</li>
+            <li>Циклограмма гибки + экспорт в Excel</li>
+            <li>PDF-паспорт + файл .opjob для планшета оператора</li>
+            <li>Неограниченное число планшетов операторов</li>
+          </ul>
+
+          <a class="btn btn-primary btn-block" href="#cta">Купить</a>
+        </div>
+
+        <!-- ЦЕХОВОЙ -->
+        <div class="price-card featured reveal">
+          <div class="price-badge">Популярный</div>
+          <div class="price-name">Цеховой</div>
+          <div class="price-value">35 000 ₽ <small>бессрочно</small></div>
+          <p class="price-desc"><strong>4 устройства</strong> · поддержка 2 недели</p>
+
+          <ul class="price-list">
+            <li>Импорт DXF и STEP (OpenCascade)</li>
+            <li>3D-симуляция гибки</li>
+            <li>Библиотека пуансонов и матриц</li>
+            <li>Авто-расстановка штампов</li>
+            <li>Проверка коллизий (пуансон, матрица, станок, пол)</li>
+            <li>Расчёт усилия и упора с K-фактором</li>
+            <li>Калибровка пружинения по металлу</li>
+            <li>Циклограмма гибки + экспорт в Excel</li>
+            <li>PDF-паспорт + файл .opjob для планшета оператора</li>
+            <li>Неограниченное число планшетов операторов</li>
+          </ul>
+
+          <a class="btn btn-primary btn-block" href="#cta">Купить</a>
+        </div>
+
+      </div>
+
+      <ul class="price-note reveal">
+        <li>Все цены указаны без НДС.</li>
+        <li>Лицензия бессрочная, обновления включены на 1 год.</li>
+                <li>Пробный период 14 дней — бесплатно, без карты.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7.5 КАЛЬКУЛЯТОР ОКУПАЕМОСТИ
+       ============================================================ -->
+  <section class="section" id="roi" style="background:linear-gradient(180deg,transparent,rgba(48,209,88,.025) 45%,transparent)">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="roi.eyebrow">Калькулятор окупаемости</span>
+        <h2 data-i18n="roi.h2">Сколько вы теряете без KONTUMA</h2>
+        <p data-i18n="roi.p">Подвиньте ползунки — увидите, за сколько месяцев программа окупится именно в вашем цеху.</p>
+      </div>
+
+      <div class="roi-card reveal">
+        <div class="roi-grid">
+          <div class="roi-controls">
+
+            <div class="roi-field">
+              <label for="roiDetails" data-i18n="roi.f1">Деталей в месяц</label>
+              <div class="roi-slider-row">
+                <input type="range" id="roiDetails" min="10" max="5000" step="10" value="200" aria-label="Деталей в месяц" data-i18n-aria="roi.f1">
+                <output class="roi-val" id="roiDetailsVal" for="roiDetails">200</output>
+              </div>
+            </div>
+
+            <div class="roi-field">
+              <label for="roiCost" data-i18n="roi.f2">Стоимость одной детали (материал + работа), ₽</label>
+              <div class="roi-slider-row">
+                <input type="range" id="roiCost" min="100" max="50000" step="100" value="800" aria-label="Стоимость одной детали в рублях" data-i18n-aria="roi.f2">
+                <output class="roi-val" id="roiCostVal" for="roiCost">800 ₽</output>
+              </div>
+            </div>
+
+            <div class="roi-field">
+              <label for="roiDefect" data-i18n="roi.f3">Процент брака сейчас, %</label>
+              <div class="roi-slider-row">
+                <input type="range" id="roiDefect" min="0" max="30" step="0.5" value="5" aria-label="Процент брака сейчас" data-i18n-aria="roi.f3">
+                <output class="roi-val" id="roiDefectVal" for="roiDefect">5 %</output>
+              </div>
+            </div>
+
+            <div class="roi-field">
+              <label for="roiHours" data-i18n="roi.f4">Часов технолога на подготовку одной детали</label>
+              <div class="roi-slider-row">
+                <input type="range" id="roiHours" min="0.1" max="8" step="0.1" value="0.5" aria-label="Часов технолога на подготовку одной детали" data-i18n-aria="roi.f4">
+                <output class="roi-val" id="roiHoursVal" for="roiHours">0,5 ч</output>
+              </div>
+            </div>
+
+            <div class="roi-field">
+              <label for="roiRate" data-i18n="roi.f5">Ставка технолога, ₽/час</label>
+              <div class="roi-slider-row">
+                <input type="range" id="roiRate" min="300" max="3000" step="50" value="800" aria-label="Ставка технолога в рублях в час" data-i18n-aria="roi.f5">
+                <output class="roi-val" id="roiRateVal" for="roiRate">800 ₽/ч</output>
+              </div>
+            </div>
+
+            <fieldset class="roi-tiles">
+              <legend data-i18n="roi.legend">Число устройств</legend>
+              <div class="roi-tiles-row">
+                <label class="roi-tile checked">
+                  <input type="radio" name="roiSeats" value="20000" checked aria-label="1 устройство за 20 000 рублей" data-i18n-aria="roi.s1">
+                  <span class="roi-tile-name" data-i18n="roi.s1">1 устройство</span>
+                  <span class="roi-tile-price" data-i18n="roi.sp1">20 000 ₽</span>
+                </label>
+                <label class="roi-tile">
+                  <input type="radio" name="roiSeats" value="25000" aria-label="2 устройства за 25 000 рублей" data-i18n-aria="roi.s2">
+                  <span class="roi-tile-name" data-i18n="roi.s2">2 устройства</span>
+                  <span class="roi-tile-price" data-i18n="roi.sp2">25 000 ₽</span>
+                </label>
+                <label class="roi-tile">
+                  <input type="radio" name="roiSeats" value="35000" aria-label="4 устройства за 35 000 рублей" data-i18n-aria="roi.s4">
+                  <span class="roi-tile-tag" data-i18n="roi.tag">Выгодно</span>
+                  <span class="roi-tile-name" data-i18n="roi.s4">4 устройства</span>
+                  <span class="roi-tile-price" data-i18n="roi.sp4">35 000 ₽</span>
+                </label>
+              </div>
+            </fieldset>
+
+          </div>
+
+          <div class="roi-results">
+            <div class="roi-row">
+              <span class="roi-label" data-i18n="roi.r1">Экономия в месяц</span>
+              <span class="roi-num green" id="roiSaveMonth">—</span>
+            </div>
+            <div class="roi-row">
+              <span class="roi-label" data-i18n="roi.r2">Экономия в год</span>
+              <span class="roi-num green" id="roiSaveYear">—</span>
+            </div>
+            <div class="roi-row roi-row-big">
+              <span class="roi-label" data-i18n="roi.r3">Окупаемость лицензии</span>
+              <span class="roi-num green" id="roiPayback">—</span>
+            </div>
+            <div class="roi-row">
+              <span class="roi-label" data-i18n="roi.r4">Цена лицензии</span>
+              <span class="roi-num neutral" id="roiPrice">20 000 ₽</span>
+            </div>
+            <a class="btn btn-primary btn-block" href="#cta" data-i18n="roi.buy">Купить</a>
+          </div>
+        </div>
+
+        <p class="hint" data-i18n="roi.hint">Расчёт оценочный. Основан на средних показателях клиентов KONTUMA: снижение брака до 70%, ускорение подготовки технолога вдвое. Фактические цифры зависят от вашего производства и парка станков.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. FAQ
+       ============================================================ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="faq.eyebrow">FAQ</span>
+        <h2 data-i18n="faq.h2">Частые вопросы</h2>
+      </div>
+
+      <div class="accordion reveal">
+        <details>
+          <summary data-i18n="faq.q1">Нужно ли что-то устанавливать?</summary>
+          <div class="acc-body" data-i18n="faq.a1">Да. KONTUMA — полноценное приложение для Windows. Устанавливается за 5 минут, работает локально на компьютере технолога. Никаких облачных подписок и лицензий Windows Server.</div>
+        </details>
+
+        <details>
+          <summary data-i18n="faq.q2">Какие форматы на входе?</summary>
+          <div class="acc-body" data-i18n="faq.a2">DXF (LINE, LWPOLYLINE, ARC, CIRCLE) и STEP (через OpenCascade). На выходе — PDF-паспорт, Excel-таблица, файл задания .opjob и PNG-скриншот 3D-вида.</div>
+        </details>
+
+        <details>
+          <summary data-i18n="faq.q3">Сколько операторов могут работать с одним заданием?</summary>
+          <div class="acc-body" data-i18n="faq.a3">Не ограничено. Один файл .opjob можно открыть на любом количестве планшетов — например, если деталь гнут параллельно на нескольких прессах.</div>
+        </details>
+
+        <details>
+          <summary data-i18n="faq.q4">Что делать, если нет интернета в цеху?</summary>
+          <div class="acc-body" data-i18n="faq.a4">Приложение технолога работает полностью офлайн — как и планшет оператора, который открывает файл .opjob локально. Интернет не нужен нигде.</div>
+        </details>
+
+        <details>
+          <summary data-i18n="faq.q5">Есть ли поддержка оборудования?</summary>
+          <div class="acc-body" data-i18n="faq.a5">Да. Станок настраивается под конкретные параметры: длина траверсы, габариты станины, задние стойки с вырезами. Это напрямую влияет на точность проверки коллизий.</div>
+        </details>
+
+        <details>
+          <summary data-i18n="faq.q6">Можно ли доработать под наше производство?</summary>
+          <div class="acc-body" data-i18n="faq.a6">Да. Для нестандартных задач (интеграция с MES/ERP, развёртывание on-premise, обучение под ваш парк станков) — индивидуальные условия по запросу.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. CTA
+       ============================================================ -->
+  <section class="section" id="cta">
+    <div class="container">
+      <div class="cta-block reveal">
+        <h2 data-i18n="cta.h2">Готовы согнуть первую деталь без брака?</h2>
+        <p data-i18n="cta.p">Оставьте email — пришлём доступ к демо-стенду и покажем KONTUMA на вашей детали.</p>
+
+        <form class="cta-form" id="ctaForm" novalidate>
+          <input type="email" name="email" placeholder="ваш@email.ru" data-i18n-placeholder="cta.ph" aria-label="Email" required>
+          <button class="btn btn-primary" type="submit" data-i18n="cta.submit">Оставить заявку</button>
+        </form>
+
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+
+        <p class="cta-fine" data-i18n="cta.fine">14 дней бесплатно · без карты </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     10. ФУТЕР
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top">
+          <img class="logo-mark-img"
+               alt="KONTUMA"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARoSURBVFhH7VZbbxtFGN0nxBu/gRcEPwDUIlQJ8QLtQxCiNGlJWxKBCKixAJeoRCXBAlWtGpdGpShIUECoCB5QoVJBVUtKCb2kkIoqJY4d2/El9tpJNl6v1+td23vQNzN78Spc3njAIx3NaHZnvjPnO3ORpG7plm75r4uuxrfYdjmkKfGQpsZDuroUQMqrNV/b6Wd94tu/gTs2FbJtJSTVlMUJsLIOQAGwAaACQBWoBtqbQQOgA6htAvrmwD+G5gMkQ01EKHBdS6JeJaRg1DICWTT0LAyd1x5yvL+W4e16HqZRgGmsoFFfQYPVeQ7xL68JztzLjIQgUIFRS8PQUhw6TZz1JnHBA6BdAuyy2w+sMfWajSL7bjYKnIQhand8DgaRqGVhaERAg2RoyQgxIUYsONVOcDGJ2SgKyGi3FYx/fBZPj05AreaYzN/NXMWjA6MY/+QsLGsVlim7//OaiPjIMBKZAAFtWQTPiOA8cMMoouEQMGUm2/aDR3HPEy8yv0zPzUJ6ZA8e2PUG0oUE2q1VFpiPIQJOm+Yq+JTIMvKS7qaAE2DSu/J1giahf3cejuL+3jAuXPsZ0tZ+PNQXhrxOkiriPy+wC1qIqwD5ihSokQdIgWonAcpjkIBYERHY885J3Pv4IO7b/gpen/wUayr5gAf3VsvhpIGTIAVWhIGJsEtARYOCM1f78u842p2IE+gdOwFp6z6MTE5h6v0IksnbrN+vFB/j8wERYiYWCrgeEAScreEo4LL1rYqnYAN9kVPof/sY3h0L49DIMPoGBpFY4iQMg3ZBpwK87ZjQr4CPAK2etuLmHvBWZLcVfHn+W/Tu24vJ0ydhaGlMfhDFzr37cXfhFlpNMqFDIOgjh0BOKEApYLtAeEBL8y0YIGBaJViEVpmdeF9/8wWip6L8dGuTKmVMnDiCz7/6jJ1yVrPMdozZLHm5d+AeTm4KaBd4KfDOgE4D1tUsNDmB6kqMBaBU1OQ4Kst3ocsJtOgkrZCHCjBqeYa6mvHtAD6XUc+zGJ4CLgHaBSIFwoRmqwStFMelnn7MRY5gbuw9zIZHMf3MfswOj+DXt8Zx9fmXcevgYWTOn8PlHbtx49UwZgYOYGHqI1zu6Yea/wNWe9WngOOBgAJ1LY06Hcd0VgsCbVQgX/sR5x7chuvDb+Lma4dwY3gEV54bxPdbdmDh9IeInzmD+WNR/DJwANPPvoAftvXg4pO78NPul3DhsadQuHIRLfKYowIpIO4aHwFxFzDQSZhjBCyzBK24yLCRuoPizCWszd+ErqRRLcSgZuZRKy+hkr4D+fo0NEpJ8ncosd+gxG8z9bTCIiyr7DsH6BT8KwIddwHdcjlYloxmu8zQwhqadhlWU4bVklltWkXWbmKNSU01g73KTGuRER33+1bP74IqJL0SO87fA/QOcN4ChM3ufP+9HrzfnTfB370L/G8B8R7QK7GHbbs0pFfiQ3plSdSiXQ0iLRDs93/7J1AMPsa214eCL7Ru6Zb/X/kTFL6PQVb3msAAAAAASUVORK5CYII=">
+          <span>KONTUMA<small>Bend&nbsp;Simulation</small></span>
+        </a>
+        <p>Система подготовки и симуляции гибки листового металла на листогибочных прессах с ЧПУ. Полноценное приложение для Windows.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Продукт</h4>
+        <ul>
+          <li><a href="#features">Возможности</a></li>
+          <li><a href="#interfaces">Интерфейсы</a></li>
+          <li><a href="#tech">Технологии</a></li>
+          <li><a href="#pricing">Цены</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="mailto:hello@kontuma.ru">hello@kontuma.ru</a></li>
+          <li><a href="tel:+78000000000">+7 (800) 000-00-00</a></li>
+          <li><a href="#cta">Оставить заявку</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Документы</h4>
+        <ul>
+          <li><a href="#">Политика конфиденциальности</a></li>
+          <li><a href="#">Пользовательское соглашение</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 KONTUMA. Все права защищены.</span>
+      <span>Цены указаны без НДС.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- КНОПКА «НАВЕРХ» -->
+<button class="to-top" id="toTop" type="button" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Плавное появление при скролле ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ---------- Кнопка «Наверх» ---------- */
+  var toTop = document.getElementById('toTop');
+  var ticking = false;
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        if (window.scrollY > 800) {
+          toTop.classList.add('show');
+        } else {
+          toTop.classList.remove('show');
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  toTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ---------- Форма заявки ---------- */
+  var form = document.getElementById('ctaForm');
+  var msg = document.getElementById('formMsg');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var input = form.querySelector('input[type="email"]');
+    var value = (input.value || '').trim();
+
+    var valid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+
+    if (!valid) {
+      msg.style.color = '#ff453a';
+      msg.textContent = 'Проверьте адрес email — кажется, там опечатка.';
+      input.focus();
+      return;
+    }
+
+    msg.style.color = '#30d158';
+    msg.textContent = 'Спасибо! Заявка принята — свяжемся в течение рабочего дня.';
+    form.reset();
+  });
+
+  /* ---------- Калькулятор окупаемости ---------- */
+  var roiCard = document.getElementById('roi');
+
+  if (roiCard) {
+    var nfInt = new Intl.NumberFormat('ru-RU');
+    var nfOne = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 1 });
+
+    var roiInputs = [
+      { input: 'roiDetails', out: 'roiDetailsVal', fmt: function (v) { return nfInt.format(v); } },
+      { input: 'roiCost',    out: 'roiCostVal',    fmt: function (v) { return nfInt.format(v) + ' ₽'; } },
+      { input: 'roiDefect',  out: 'roiDefectVal',  fmt: function (v) { return nfOne.format(v) + ' %'; } },
+      { input: 'roiHours',   out: 'roiHoursVal',   fmt: function (v) { return nfOne.format(v) + ' ч'; } },
+      { input: 'roiRate',    out: 'roiRateVal',    fmt: function (v) { return nfInt.format(v) + ' ₽/ч'; } }
+    ];
+
+    var roiTiles = roiCard.querySelectorAll('.roi-tile');
+
+    function plural(n, one, few, many) {
+      var isInt = Math.abs(n - Math.round(n)) < 1e-9;
+      if (!isInt) { return few; }
+      var abs = Math.round(Math.abs(n));
+      var last = abs % 10;
+      var tens = Math.floor(abs / 10) % 10;
+      if (abs === 1) { return one; }
+      if (tens !== 1 && last >= 2 && last <= 4) { return few; }
+      return many;
+    }
+
+    function syncTiles() {
+      roiTiles.forEach(function (tile) {
+        var radio = tile.querySelector('input');
+        tile.classList.toggle('checked', radio.checked);
+      });
+    }
+
+    function recalcRoi() {
+      var details = parseFloat(document.getElementById('roiDetails').value) || 0;
+      var cost = parseFloat(document.getElementById('roiCost').value) || 0;
+      var defect = parseFloat(document.getElementById('roiDefect').value) || 0;
+      var hours = parseFloat(document.getElementById('roiHours').value) || 0;
+      var rate = parseFloat(document.getElementById('roiRate').value) || 0;
+
+      var checkedSeat = roiCard.querySelector('input[name="roiSeats"]:checked');
+      var price = checkedSeat ? parseFloat(checkedSeat.value) : 20000;
+
+      var saveDefect = details * (defect / 100) * cost * 0.7;
+      var saveTime = details * hours * rate * 0.5;
+      var perMonth = saveDefect + saveTime;
+      var perYear = perMonth * 12;
+      var paybackMonths = perMonth > 0 ? price / perMonth : Infinity;
+      var paybackDays = isFinite(paybackMonths) ? paybackMonths * 30 : Infinity;
+
+      document.getElementById('roiSaveMonth').textContent = nfInt.format(Math.round(perMonth)) + ' ₽';
+      document.getElementById('roiSaveYear').textContent = nfInt.format(Math.round(perYear)) + ' ₽';
+      document.getElementById('roiPrice').textContent = nfInt.format(price) + ' ₽';
+
+      var paybackEl = document.getElementById('roiPayback');
+      paybackEl.classList.remove('roi-muted');
+
+      if (!isFinite(paybackMonths)) {
+        paybackEl.textContent = '—';
+      } else if (paybackMonths < 1) {
+        paybackEl.textContent = 'меньше месяца';
+      } else if (paybackMonths < 24) {
+        paybackEl.textContent = nfOne.format(paybackMonths) + ' ' + plural(paybackMonths, 'месяц', 'месяца', 'месяцев');
+      } else {
+        paybackEl.classList.add('roi-muted');
+        var years = paybackMonths / 12;
+        paybackEl.textContent = nfOne.format(years) + ' ' + plural(years, 'год', 'года', 'лет');
+      }
+    }
+
+    roiInputs.forEach(function (item) {
+      var input = document.getElementById(item.input);
+      var out = document.getElementById(item.out);
+      input.addEventListener('input', function () {
+        out.textContent = item.fmt(parseFloat(input.value));
+        recalcRoi();
+      });
+    });
+
+    roiCard.querySelectorAll('input[name="roiSeats"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        syncTiles();
+        recalcRoi();
+      });
+    });
+
+    syncTiles();
+    recalcRoi();
+  }
+
+  /* ---------- Аккордеон: закрываем соседние details ---------- */
+  var groups = document.querySelectorAll('.accordion');
+  groups.forEach(function (group) {
+    var items = group.querySelectorAll('details');
+    items.forEach(function (item) {
+      item.addEventListener('toggle', function () {
+        if (item.open) {
+          items.forEach(function (other) {
+            if (other !== item) { other.open = false; }
+          });
+        }
+      });
+    });
+  });
+
+  /* ---------- Мягкий переход для внутренних ссылок ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var id = link.getAttribute('href');
+      if (id === '#' || id.length < 2) { return; }
+      var target = document.querySelector(id);
+      if (!target) { return; }
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', id);
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
