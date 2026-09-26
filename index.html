@@ -1421,7 +1421,7 @@ button,input{font-family:inherit;font-size:inherit}
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow" data-i18n="feat.eyebrow">Возможности</span>
-        <h2 data-i18n="feat.h2">Полный цикл — от файла до готовой детали</h2>
+        <h2 data-i18n="feat.title">Полный цикл — от файла до готовой детали</h2>
         <p data-i18n="feat.p">Восемь ключевых модулей, которые закрывают работу технолога и оператора в одной системе.</p>
       </div>
 
@@ -1873,62 +1873,6 @@ button,input{font-family:inherit;font-size:inherit}
         <li data-i18n="pr.note4">Возврат денег в течение 30 дней без вопросов.</li>
         <li data-i18n="pr.note5">Пробный период 14 дней — бесплатно, без карты.</li>
       </ul>
-
-          <a class="btn btn-primary btn-block" href="#cta">Купить</a>
-        </div>
-
-        <!-- ПАРНЫЙ -->
-        <div class="price-card reveal">
-          <div class="price-name">Парный</div>
-          <div class="price-value">25 000 ₽ <small>бессрочно</small></div>
-          <p class="price-desc"><strong>2 устройства</strong> · поддержка —</p>
-
-          <ul class="price-list">
-            <li>Импорт DXF и STEP (OpenCascade)</li>
-            <li>3D-симуляция гибки</li>
-            <li>Библиотека пуансонов и матриц</li>
-            <li>Авто-расстановка штампов</li>
-            <li>Проверка коллизий (пуансон, матрица, станок, пол)</li>
-            <li>Расчёт усилия и упора с K-фактором</li>
-            <li>Калибровка пружинения по металлу</li>
-            <li>Циклограмма гибки + экспорт в Excel</li>
-            <li>PDF-паспорт + файл .opjob для планшета оператора</li>
-            <li>Неограниченное число планшетов операторов</li>
-          </ul>
-
-          <a class="btn btn-primary btn-block" href="#cta">Купить</a>
-        </div>
-
-        <!-- ЦЕХОВОЙ -->
-        <div class="price-card featured reveal">
-          <div class="price-badge">Популярный</div>
-          <div class="price-name">Цеховой</div>
-          <div class="price-value">35 000 ₽ <small>бессрочно</small></div>
-          <p class="price-desc"><strong>4 устройства</strong> · поддержка 2 недели</p>
-
-          <ul class="price-list">
-            <li>Импорт DXF и STEP (OpenCascade)</li>
-            <li>3D-симуляция гибки</li>
-            <li>Библиотека пуансонов и матриц</li>
-            <li>Авто-расстановка штампов</li>
-            <li>Проверка коллизий (пуансон, матрица, станок, пол)</li>
-            <li>Расчёт усилия и упора с K-фактором</li>
-            <li>Калибровка пружинения по металлу</li>
-            <li>Циклограмма гибки + экспорт в Excel</li>
-            <li>PDF-паспорт + файл .opjob для планшета оператора</li>
-            <li>Неограниченное число планшетов операторов</li>
-          </ul>
-
-          <a class="btn btn-primary btn-block" href="#cta">Купить</a>
-        </div>
-
-      </div>
-
-      <ul class="price-note reveal">
-        <li>Все цены указаны без НДС.</li>
-        <li>Лицензия бессрочная, обновления включены на 1 год.</li>
-                <li>Пробный период 14 дней — бесплатно, без карты.</li>
-      </ul>
     </div>
   </section>
 
@@ -2117,53 +2061,440 @@ button,input{font-family:inherit;font-size:inherit}
                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARoSURBVFhH7VZbbxtFGN0nxBu/gRcEPwDUIlQJ8QLtQxCiNGlJWxKBCKixAJeoRCXBAlWtGpdGpShIUECoCB5QoVJBVUtKCb2kkIoqJY4d2/El9tpJNl6v1+td23vQNzN78Spc3njAIx3NaHZnvjPnO3ORpG7plm75r4uuxrfYdjmkKfGQpsZDuroUQMqrNV/b6Wd94tu/gTs2FbJtJSTVlMUJsLIOQAGwAaACQBWoBtqbQQOgA6htAvrmwD+G5gMkQ01EKHBdS6JeJaRg1DICWTT0LAyd1x5yvL+W4e16HqZRgGmsoFFfQYPVeQ7xL68JztzLjIQgUIFRS8PQUhw6TZz1JnHBA6BdAuyy2w+sMfWajSL7bjYKnIQhand8DgaRqGVhaERAg2RoyQgxIUYsONVOcDGJ2SgKyGi3FYx/fBZPj05AreaYzN/NXMWjA6MY/+QsLGsVlim7//OaiPjIMBKZAAFtWQTPiOA8cMMoouEQMGUm2/aDR3HPEy8yv0zPzUJ6ZA8e2PUG0oUE2q1VFpiPIQJOm+Yq+JTIMvKS7qaAE2DSu/J1giahf3cejuL+3jAuXPsZ0tZ+PNQXhrxOkiriPy+wC1qIqwD5ihSokQdIgWonAcpjkIBYERHY885J3Pv4IO7b/gpen/wUayr5gAf3VsvhpIGTIAVWhIGJsEtARYOCM1f78u842p2IE+gdOwFp6z6MTE5h6v0IksnbrN+vFB/j8wERYiYWCrgeEAScreEo4LL1rYqnYAN9kVPof/sY3h0L49DIMPoGBpFY4iQMg3ZBpwK87ZjQr4CPAK2etuLmHvBWZLcVfHn+W/Tu24vJ0ydhaGlMfhDFzr37cXfhFlpNMqFDIOgjh0BOKEApYLtAeEBL8y0YIGBaJViEVpmdeF9/8wWip6L8dGuTKmVMnDiCz7/6jJ1yVrPMdozZLHm5d+AeTm4KaBd4KfDOgE4D1tUsNDmB6kqMBaBU1OQ4Kst3ocsJtOgkrZCHCjBqeYa6mvHtAD6XUc+zGJ4CLgHaBSIFwoRmqwStFMelnn7MRY5gbuw9zIZHMf3MfswOj+DXt8Zx9fmXcevgYWTOn8PlHbtx49UwZgYOYGHqI1zu6Yea/wNWe9WngOOBgAJ1LY06Hcd0VgsCbVQgX/sR5x7chuvDb+Lma4dwY3gEV54bxPdbdmDh9IeInzmD+WNR/DJwANPPvoAftvXg4pO78NPul3DhsadQuHIRLfKYowIpIO4aHwFxFzDQSZhjBCyzBK24yLCRuoPizCWszd+ErqRRLcSgZuZRKy+hkr4D+fo0NEpJ8ncosd+gxG8z9bTCIiyr7DsH6BT8KwIddwHdcjlYloxmu8zQwhqadhlWU4bVklltWkXWbmKNSU01g73KTGuRER33+1bP74IqJL0SO87fA/QOcN4ChM3ufP+9HrzfnTfB370L/G8B8R7QK7GHbbs0pFfiQ3plSdSiXQ0iLRDs93/7J1AMPsa214eCL7Ru6Zb/X/kTFL6PQVb3msAAAAAASUVORK5CYII=">
           <span>KONTUMA<small>Bend&nbsp;Simulation</small></span>
         </a>
-        <p>Система подготовки и симуляции гибки листового металла на листогибочных прессах с ЧПУ. Полноценное приложение для Windows.</p>
+        <p data-i18n="foot.brand">Система подготовки и симуляции гибки листового металла на листогибочных прессах с ЧПУ. Полноценное приложение для Windows.</p>
       </div>
 
       <div class="footer-col">
-        <h4>Продукт</h4>
+        <h4 data-i18n="foot.product">Продукт</h4>
         <ul>
-          <li><a href="#features">Возможности</a></li>
-          <li><a href="#interfaces">Интерфейсы</a></li>
-          <li><a href="#tech">Технологии</a></li>
-          <li><a href="#pricing">Цены</a></li>
+          <li><a href="#features" data-i18n="nav.features">Возможности</a></li>
+          <li><a href="#interfaces" data-i18n="nav.interfaces">Интерфейсы</a></li>
+          <li><a href="#tech" data-i18n="nav.tech">Технологии</a></li>
+          <li><a href="#pricing" data-i18n="nav.pricing">Цены</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Контакты</h4>
+        <h4 data-i18n="foot.contacts">Контакты</h4>
         <ul>
-          <li><a href="mailto:hello@kontuma.ru">hello@kontuma.ru</a></li>
+          <li><a href="mailto:kontumapro@gmail.com">kontumapro@gmail.com</a></li>
           <li><a href="tel:+78000000000">+7 (800) 000-00-00</a></li>
-          <li><a href="#cta">Оставить заявку</a></li>
+          <li><a href="#cta" data-i18n="cta.submit">Оставить заявку</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Документы</h4>
+        <h4 data-i18n="foot.docs">Документы</h4>
         <ul>
-          <li><a href="#">Политика конфиденциальности</a></li>
-          <li><a href="#">Пользовательское соглашение</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#" data-i18n="foot.privacy">Политика конфиденциальности</a></li>
+          <li><a href="#" data-i18n="foot.terms">Пользовательское соглашение</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© 2025 KONTUMA. Все права защищены.</span>
-      <span>Цены указаны без НДС.</span>
+      <span data-i18n="foot.copy">© 2025 KONTUMA. Все права защищены.</span>
+      <span data-i18n="foot.vat">Цены указаны без НДС.</span>
     </div>
   </div>
 </footer>
 
 <!-- КНОПКА «НАВЕРХ» -->
-<button class="to-top" id="toTop" type="button" aria-label="Наверх">
+<button class="to-top" id="toTop" type="button" aria-label="Наверх" data-i18n-aria="aria.top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
 </button>
 
 <script>
 (function () {
   'use strict';
+
+  /* ---------- Словарь переводов RU / EN ---------- */
+  var I18N = {
+    ru: {
+      'meta.title': 'KONTUMA — гибка без переделок | Приложение для Windows: симуляция гибки листового металла',
+      'meta.description': 'KONTUMA — приложение для Windows: подготовка и симуляция гибки листового металла на листогибочных прессах с ЧПУ. От DXF/STEP до карты гибки и планшета оператора за 2 минуты.',
+      'nav.features': 'Возможности', 'nav.interfaces': 'Интерфейсы', 'nav.tech': 'Технологии', 'nav.pricing': 'Цены', 'nav.faq': 'FAQ',
+      'header.cta': 'Попробовать бесплатно',
+      'hero.badge': 'B2B · Листогибочные прессы с ЧПУ',
+      'hero.h1': 'гибка без переделок',
+      'hero.sub': 'От DXF до готовой карты гибки за 2 минуты. Полноценное приложение для Windows. Инструкция оператору — на планшет в цех.',
+      'hero.cta1': 'Попробовать бесплатно', 'hero.cta2': 'Смотреть возможности',
+      'hero.trust1': 'Приложение для Windows', 'hero.trust2': 'Установка за 5 минут', 'hero.trust3': 'PDF + планшет оператора',
+      'ps.eyebrow': 'Проблема → Решение',
+      'ps.h2': 'Что ломается на гибке — и как это убирает KONTUMA',
+      'ps.p': 'Каждая ошибка на прессе стоит металла, времени и ремонта станка. KONTUMA переносит проверку в цифру — до того, как оператор нажмёт педаль.',
+      'ps.h31': 'Как обычно', 'ps.note1': 'Ручной расчёт, бумажные чертежи, «а я думал, наоборот»',
+      'ps.p1': 'Оператор сгибает не туда — деталь в брак',
+      'ps.p2': 'Технолог считает упор вручную в Excel — ошибки',
+      'ps.p3': 'Пуансон бьёт по матрице — ремонт станка',
+      'ps.p4': 'Отверстие близко к гибу — разрыв металла',
+      'ps.p5': 'Нет единого паспорта гибки — каждый делает по-своему',
+      'ps.h32': 'Как с KONTUMA', 'ps.note2': 'Всё считается и проверяется до первого касания металла',
+      'ps.s1': '3D-симуляция ДО гибки на станке',
+      'ps.s2': 'Расчёт упора и усилия автоматически',
+      'ps.s3': 'Проверка коллизий в реальном времени',
+      'ps.s4': 'Предупреждение «отверстие близко к гибу»',
+      'ps.s5': 'PDF-паспорт + планшет оператора с фото каждого гиба',
+      'feat.eyebrow': 'Возможности',
+      'feat.title': 'Полный цикл — от файла до готовой детали',
+      'feat.p': 'Восемь ключевых модулей, которые закрывают работу технолога и оператора в одной системе.',
+      'feat.h1': 'Импорт DXF и STEP',
+      'feat.d1': 'Распознаёт линии гибов по слоям и типам линий, склеивает контур, поддерживает авто-детект виртуальных гибов по микро-вырезам.',
+      'feat.h2': 'Библиотека инструмента',
+      'feat.d2': 'Пуансоны и матрицы из DXF. Отражение по X/Y/Z, привязка к станку.',
+      'feat.h3': 'Авто-расстановка штампов',
+      'feat.d3': 'Программа сама подбирает нужную длину пуансона и матрицы под каждый гиб, укладывает их вдоль траверсы без наложений. Учитывает гранулярность — самый короткий гиб получает самый короткий пуансон.',
+      'feat.h4': '3D-симуляция гибки',
+      'feat.d4': 'Плавная анимация: заготовка поворачивается, пуансон опускается, деталь гнётся. Видно, как деталь ляжет на матрицу ДО того, как оператор начнёт работу.',
+      'feat.h5': 'Проверка коллизий',
+      'feat.d5': 'Красная подсветка: пуансон, матрица, траверса, станина, стойки, пол. Предупреждения в таблице гибов: «заготовка упирается в пуансон», «отверстие близко к гибу». Есть кнопка сброса ложных срабатываний.',
+      'feat.h6': 'Расчёт усилия и упора',
+      'feat.d6': 'Усилие гибки в тоннах по материалу, толщине, V-раскрытию матрицы и длине гиба. Расстояние от оси станка до упора — с учётом K-фактора нейтрального слоя.',
+      'feat.h7': 'Циклограмма гибки',
+      'feat.d7': 'Расчёт машинного и операторского времени: загрузка, выравнивание, правка упора, рабочий ход, съём детали. Экспорт в Excel.',
+      'feat.h8': 'Паспорт для оператора',
+      'feat.d8': 'PDF с профилями пуансона и матрицы, развёрткой, габаритами, массой и фото каждого гиба. Файл .opjob открывается на планшете в цеху — оператор видит пошаговую инструкцию с галочками прогресса.',
+      'duo.eyebrow': 'Два интерфейса', 'duo.h2': 'Один файл — две роли',
+      'duo.p': 'Технолог готовит задание в приложении на ПК. Оператор открывает тот же файл .opjob на планшете в цеху. Никаких бумажных чертежей и лишних согласований.',
+      'duo.tag1': 'Технолог', 'duo.label1': 'Приложение для Windows',
+      'duo.cap1': 'Большой 3D-вид, панель инструмента, таблица гибов, расчёт усилия и коллизий.',
+      'duo.tag2': 'Оператор', 'duo.label2': 'Планшет в цеху',
+      'duo.cap2': 'Плитки гибов с фото, счётчик ✅ 3/8, синяя кнопка «Готово». Интернет не нужен.',
+      'duo.noteA': 'Один файл задания',
+      'duo.noteB': '— и технолог, и оператор работают с одной и той же версией детали. Никаких «я делал по старому чертежу».',
+      'exp.eyebrow': 'Экспорт и интеграция', 'exp.h2': 'Результат работы — в удобном формате',
+      'exp.p': 'Всё, что нужно цеху, MES и архиву технолога.',
+      'exp.i1h': 'PDF-паспорт гибки', 'exp.i1s': 'A4, готов к печати',
+      'exp.i2h': 'Excel-таблица гибов', 'exp.i2s': 'Для MES / ERP',
+      'exp.i3h': 'Файл задания .opjob', 'exp.i3s': 'Для планшета оператора',
+      'exp.i4h': 'Скриншот 3D-вида', 'exp.i4s': 'PNG для КП и документации',
+      'exp.figcap': 'PDF-паспорт: профили инструмента, развёртка с номерами гибов, габариты, масса и фото каждого гиба',
+      'tech.eyebrow': 'Технические возможности', 'tech.h2': 'Что под капотом',
+      'tech.p': 'Детали, которые важны технологу и инженеру-технологу производства.',
+      'tech.s1': 'Поддержка DXF (LINE, LWPOLYLINE, ARC, CIRCLE)',
+      'tech.b1': 'Парсер читает основные примитивы DXF, распознаёт линии гибов по слоям и типам линий, склеивает разорванный контур в замкнутый профиль. Поддерживается авто-детект виртуальных гибов по микро-вырезам.',
+      'tech.s2': 'Парсинг STEP через OpenCascade',
+      'tech.b2': 'Загрузка объёмных моделей STEP, автоматическое построение развёртки и назначение граней на гибы. Модальное окно «Предпросмотр STEP» показывает 3D-модель с цветными маркерами гибов и номерами.',
+      'tech.s3': 'K-фактор нейтрального слоя (0..1, пресет 0.3–0.5)',
+      'tech.b3': 'Гибкий параметр для расчёта длины развёртки и положения упора. Пресеты под распространённые материалы и толщины, с возможностью ручной корректировки под вашу технологию.',
+      'tech.s4': 'Калибровка пружинения (таблица Y по материалу / толщине / углу / V)',
+      'tech.b4': 'Таблица коэффициентов пружинения, которая учитывается при расчёте угла подгибки. Настраивается под конкретный металл, толщину, угол гиба и V-раскрытие матрицы.',
+      'tech.s5': 'Авто-сортировка гибов по возрастанию упора',
+      'tech.b5': 'Оптимальный порядок гибки, при котором деталь не мешает сама себе и не упирается в инструмент. Сортировка выполняется автоматически с возможностью ручной правки.',
+      'tech.s6': 'Отражение лицевой, смена упора, разворот заготовки',
+      'tech.b6': 'Инструменты быстрой правки задания: отражение детали по лицевой стороне, смена базы упора, разворот заготовки — без повторного импорта файла.',
+      'tech.s7': 'Кастомные размеры траверсы, станины, задних стоек с вырезами',
+      'tech.b7': 'Модель станка настраивается под ваш пресс: длина траверсы, габариты станины, положение задних стоек и вырезы в них. Это влияет на точность проверки коллизий.',
+      'tech.s8': 'Сечение заготовки плоскостью (визуальный срез)',
+      'tech.b8': 'Инструмент визуального среза позволяет заглянуть внутрь детали и проверить положение гибов, толщину материала и зоны, скрытые от камеры.',
+      'tech.s9': 'HUD габаритов и массы детали',
+      'tech.b9': 'Постоянно видимая панель с габаритами детали, площадью развёртки и расчётной массой — например «582.8 × 632.2 × 43 мм, развёртка 0.388 м², ≈ 4.60 кг».',
+      'tech.s10': 'Автопрогон всех гибов по порядку для проверки технологом',
+      'tech.b10': 'Один клик — и KONTUMA последовательно проигрывает все гибы задания. Технолог видит весь процесс целиком и может поймать проблему до передачи файла в цех.',
+      'pr.eyebrow': 'Цены', 'pr.h2': 'Дешевле аналогов в десятки раз',
+      'pr.p': 'Radan, Lantek Bend, TruTops Bend стоят от $5 000 до $30 000 за рабочее место плюс ежегодная поддержка. KONTUMA — от 20 000 ₽ за устройство, бессрочная лицензия.',
+      'pr.badge': 'Популярный',
+      'pr.n1': 'Базовый', 'pr.p1': '20 000 ₽', 'pr.sm': 'бессрочно', 'pr.dev1': '1 устройство', 'pr.sup0': ' · поддержка —',
+      'pr.n2': 'Парный', 'pr.p2': '25 000 ₽', 'pr.dev2': '2 устройства',
+      'pr.n3': 'Цеховой', 'pr.p3': '35 000 ₽', 'pr.dev4': '4 устройства', 'pr.sup2w': ' · поддержка 2 недели',
+      'pr.f1': 'Импорт DXF и STEP (OpenCascade)', 'pr.f2': '3D-симуляция гибки', 'pr.f3': 'Библиотека пуансонов и матриц',
+      'pr.f4': 'Авто-расстановка штампов', 'pr.f5': 'Проверка коллизий (пуансон, матрица, станок, пол)',
+      'pr.f6': 'Расчёт усилия и упора с K-фактором', 'pr.f7': 'Калибровка пружинения по металлу',
+      'pr.f8': 'Циклограмма гибки + экспорт в Excel', 'pr.f9': 'PDF-паспорт + файл .opjob для планшета оператора',
+      'pr.f10': 'Неограниченное число планшетов операторов',
+      'pr.buy': 'Купить',
+      'pr.note1': 'Все цены указаны без НДС.',
+      'pr.note2': 'Лицензия бессрочная, обновления включены на 1 год.',
+      'pr.note3': 'Продление обновлений — 15% от стоимости в год (можно не продлевать — программа продолжит работать на текущей версии).',
+      'pr.note4': 'Возврат денег в течение 30 дней без вопросов.',
+      'pr.note5': 'Пробный период 14 дней — бесплатно, без карты.',
+      'roi.eyebrow': 'Калькулятор окупаемости', 'roi.h2': 'Сколько вы теряете без KONTUMA',
+      'roi.p': 'Подвиньте ползунки — увидите, за сколько месяцев программа окупится именно в вашем цеху.',
+      'roi.f1': 'Деталей в месяц', 'roi.f2': 'Стоимость одной детали (материал + работа), ₽', 'roi.f3': 'Процент брака сейчас, %',
+      'roi.f4': 'Часов технолога на подготовку одной детали', 'roi.f5': 'Ставка технолога, ₽/час',
+      'roi.legend': 'Число устройств',
+      'roi.s1': '1 устройство', 'roi.sp1': '20 000 ₽', 'roi.s2': '2 устройства', 'roi.sp2': '25 000 ₽',
+      'roi.s4': '4 устройства', 'roi.sp4': '35 000 ₽', 'roi.tag': 'Выгодно',
+      'roi.r1': 'Экономия в месяц', 'roi.r2': 'Экономия в год', 'roi.r3': 'Окупаемость лицензии', 'roi.r4': 'Цена лицензии',
+      'roi.buy': 'Купить',
+      'roi.hint': 'Расчёт оценочный. Основан на средних показателях клиентов KONTUMA: снижение брака до 70%, ускорение подготовки технолога вдвое. Фактические цифры зависят от вашего производства и парка станков.',
+      'faq.eyebrow': 'FAQ', 'faq.h2': 'Частые вопросы',
+      'faq.q1': 'Нужно ли что-то устанавливать?',
+      'faq.a1': 'Да. KONTUMA — полноценное приложение для Windows. Устанавливается за 5 минут, работает локально на компьютере технолога. Никаких облачных подписок и лицензий Windows Server.',
+      'faq.q2': 'Какие форматы на входе?',
+      'faq.a2': 'DXF (LINE, LWPOLYLINE, ARC, CIRCLE) и STEP (через OpenCascade). На выходе — PDF-паспорт, Excel-таблица, файл задания .opjob и PNG-скриншот 3D-вида.',
+      'faq.q3': 'Сколько операторов могут работать с одним заданием?',
+      'faq.a3': 'Не ограничено. Один файл .opjob можно открыть на любом количестве планшетов — например, если деталь гнут параллельно на нескольких прессах.',
+      'faq.q4': 'Что делать, если нет интернета в цеху?',
+      'faq.a4': 'Приложение технолога работает полностью офлайн — как и планшет оператора, который открывает файл .opjob локально. Интернет не нужен нигде.',
+      'faq.q5': 'Есть ли поддержка оборудования?',
+      'faq.a5': 'Да. Станок настраивается под конкретные параметры: длина траверсы, габариты станины, задние стойки с вырезами. Это напрямую влияет на точность проверки коллизий.',
+      'faq.q6': 'Можно ли доработать под наше производство?',
+      'faq.a6': 'Да. Для нестандартных задач (интеграция с MES/ERP, развёртывание on-premise, обучение под ваш парк станков) — индивидуальные условия по запросу.',
+      'cta.h2': 'Готовы согнуть первую деталь без брака?',
+      'cta.p': 'Оставьте email — пришлём доступ к демо-стенду и покажем KONTUMA на вашей детали.',
+      'cta.ph': 'ваш@email.ru', 'cta.submit': 'Оставить заявку',
+      'cta.fine': '14 дней бесплатно · без карты',
+      'form.err': 'Проверьте адрес email — кажется, там опечатка.',
+      'form.ok': 'Спасибо! Заявка принята — свяжемся в течение рабочего дня.',
+      'foot.brand': 'Система подготовки и симуляции гибки листового металла на листогибочных прессах с ЧПУ. Полноценное приложение для Windows.',
+      'foot.product': 'Продукт', 'foot.contacts': 'Контакты', 'foot.docs': 'Документы',
+      'foot.privacy': 'Политика конфиденциальности', 'foot.terms': 'Пользовательское соглашение',
+      'foot.copy': '© 2025 KONTUMA. Все права защищены.', 'foot.vat': 'Цены указаны без НДС.',
+      'aria.top': 'Наверх',
+      'shot.dxf': 'kontuma — импорт детали', 'shot.tooling': 'kontuma — библиотека матриц',
+      'shot.autoplace': 'kontuma — авто-расстановка', 'shot.sim': 'kontuma — 3D-симуляция гибки',
+      'shot.warn': 'kontuma — предупреждения', 'shot.force': 'kontuma — усилие гибки',
+      'shot.cyclo': 'kontuma — циклограмма', 'shot.viewer': 'kontuma viewer — планшет оператора',
+      'shot.step': 'KONTUMA — предпросмотр STEP', 'shot.pdf': 'KONTUMA — PDF-паспорт гибки, стр. 1',
+      'alt.dxf': 'Импорт DXF в KONTUMA: панель загрузки файла и таблица гибов детали detail.dxf',
+      'alt.tooling': 'Библиотека инструмента KONTUMA: папки с превью матриц и таблица «Матрицы на станке»',
+      'alt.autoplace': 'Авто-расстановка штампов в KONTUMA: результат «Расстановка выполнена: 5 из 5 групп»',
+      'alt.sim': '3D-симуляция гибки в KONTUMA: согнутая деталь с V-профилем на матрице, вид спереди',
+      'alt.coll': 'Проверка коллизий в KONTUMA: красные строки таблицы гибов и подсветка пуансона',
+      'alt.force': 'Панель расчёта усилия гибки в KONTUMA и колонка «Упор» в таблице гибов',
+      'alt.cyclo': 'Циклограмма гибки в KONTUMA: диаграмма Ганта по фазам и таблица времён',
+      'alt.passport': 'Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик прогресса и кнопка «Готово»',
+      'alt.editor': 'Редактор технолога KONTUMA: панель с деревьями «Матрица», «Пуансон», «Гибы» и 3D-вид станка с деталью',
+      'alt.tablet': 'Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик «3/8», зелёный прогресс-бар и синяя кнопка «Готово»',
+      'alt.step': 'Предпросмотр STEP в KONTUMA: 3D-модель детали с маркерами гибов и панель «Назначить грань → гиб»',
+      'alt.pdf': 'Первая страница PDF-паспорта гибки: профили пуансона и матрицы, развёртка с номерами гибов, габариты и масса детали'
+    },
+    en: {
+      'meta.title': 'KONTUMA — bending without rework | Windows app: sheet metal bending simulation',
+      'meta.description': 'KONTUMA — a Windows app for preparing and simulating sheet metal bending on CNC press brakes. From DXF/STEP to a bend map and the operator tablet in 2 minutes.',
+      'nav.features': 'Features', 'nav.interfaces': 'Interfaces', 'nav.tech': 'Technology', 'nav.pricing': 'Pricing', 'nav.faq': 'FAQ',
+      'header.cta': 'Try for free',
+      'hero.badge': 'B2B · CNC press brakes',
+      'hero.h1': 'bending without rework',
+      'hero.sub': 'From DXF to a ready bend map in 2 minutes. A full-fledged Windows app. Operator instructions — on a tablet right at the shop floor.',
+      'hero.cta1': 'Try for free', 'hero.cta2': 'See features',
+      'hero.trust1': 'Windows desktop app', 'hero.trust2': '5-minute install', 'hero.trust3': 'PDF + operator tablet',
+      'ps.eyebrow': 'Problem → Solution',
+      'ps.h2': 'What goes wrong at the press brake — and how KONTUMA fixes it',
+      'ps.p': 'Every mistake at the press costs metal, time and machine repairs. KONTUMA moves verification into the digital realm — before the operator presses the pedal.',
+      'ps.h31': 'Business as usual', 'ps.note1': 'Manual calculations, paper drawings, "I thought it was the other way around"',
+      'ps.p1': 'The operator bends the wrong way — part scrapped',
+      'ps.p2': 'The engineer calculates the backgauge in Excel by hand — errors',
+      'ps.p3': 'The punch strikes the die — machine repair',
+      'ps.p4': 'A hole too close to the bend — metal tears',
+      'ps.p5': 'No single bend passport — everyone works their own way',
+      'ps.h32': 'With KONTUMA', 'ps.note2': 'Everything is calculated and verified before the metal is ever touched',
+      'ps.s1': '3D simulation BEFORE bending on the machine',
+      'ps.s2': 'Backgauge and force calculated automatically',
+      'ps.s3': 'Real-time collision checking',
+      'ps.s4': '"Hole too close to the bend" warning',
+      'ps.s5': 'PDF passport + operator tablet with a photo of every bend',
+      'feat.eyebrow': 'Features',
+      'feat.title': 'The full cycle — from file to finished part',
+      'feat.p': 'Eight core modules that cover the engineer\'s and operator\'s work in a single system.',
+      'feat.h1': 'DXF and STEP import',
+      'feat.d1': 'Detects bend lines by layer and line type, joins the contour, and auto-detects virtual bends from micro-cutouts.',
+      'feat.h2': 'Tooling library',
+      'feat.d2': 'Punches and dies from DXF. X/Y/Z mirroring, machine binding.',
+      'feat.h3': 'Automatic tool placement',
+      'feat.d3': 'The program picks the right punch and die length for every bend and lays them out along the ram without overlaps. Granularity is respected — the shortest bend gets the shortest punch.',
+      'feat.h4': '3D bending simulation',
+      'feat.d4': 'Smooth animation: the blank rotates, the punch descends, the part bends. You see how the part will lie on the die BEFORE the operator starts.',
+      'feat.h5': 'Collision checking',
+      'feat.d5': 'Red highlighting: punch, die, ram, bed, back gauges, floor. Warnings in the bend table: "blank hits the punch", "hole too close to the bend". False positives can be reset with one click.',
+      'feat.h6': 'Force and backgauge calculation',
+      'feat.d6': 'Bending force in tonnes based on material, thickness, die V-opening and bend length. Distance from the machine axis to the backgauge — with the neutral-layer K-factor.',
+      'feat.h7': 'Bending cyclogram',
+      'feat.d7': 'Machine and operator time calculation: loading, alignment, backgauge adjustment, working stroke, part removal. Excel export.',
+      'feat.h8': 'Operator passport',
+      'feat.d8': 'A PDF with punch and die profiles, the flat pattern, dimensions, weight and a photo of every bend. The .opjob file opens on a tablet at the shop floor — the operator sees step-by-step instructions with progress checkmarks.',
+      'duo.eyebrow': 'Two interfaces', 'duo.h2': 'One file — two roles',
+      'duo.p': 'The engineer prepares the job in the desktop app. The operator opens the same .opjob file on a tablet at the shop floor. No paper drawings or extra approvals.',
+      'duo.tag1': 'Engineer', 'duo.label1': 'Windows desktop app',
+      'duo.cap1': 'Large 3D view, tooling panel, bend table, force and collision calculation.',
+      'duo.tag2': 'Operator', 'duo.label2': 'Tablet at the shop floor',
+      'duo.cap2': 'Bend cards with photos, a ✅ 3/8 counter, a blue "Done" button. No internet required.',
+      'duo.noteA': 'A single job file',
+      'duo.noteB': '— both the engineer and the operator work with the same version of the part. No more "I worked from the old drawing".',
+      'exp.eyebrow': 'Export and integration', 'exp.h2': 'The result — in a convenient format',
+      'exp.p': 'Everything the shop floor, MES and the engineer\'s archive need.',
+      'exp.i1h': 'PDF bend passport', 'exp.i1s': 'A4, print-ready',
+      'exp.i2h': 'Excel bend table', 'exp.i2s': 'For MES / ERP',
+      'exp.i3h': '.opjob job file', 'exp.i3s': 'For the operator tablet',
+      'exp.i4h': '3D view screenshot', 'exp.i4s': 'PNG for quotes and documentation',
+      'exp.figcap': 'PDF passport: tooling profiles, flat pattern with bend numbers, dimensions, weight and a photo of every bend',
+      'tech.eyebrow': 'Technical capabilities', 'tech.h2': 'Under the hood',
+      'tech.p': 'Details that matter to a production process engineer.',
+      'tech.s1': 'DXF support (LINE, LWPOLYLINE, ARC, CIRCLE)',
+      'tech.b1': 'The parser reads the main DXF primitives, detects bend lines by layer and line type, and joins a broken contour into a closed profile. Virtual bends are auto-detected from micro-cutouts.',
+      'tech.s2': 'STEP parsing via OpenCascade',
+      'tech.b2': 'Loads solid STEP models, automatically builds the flat pattern and assigns faces to bends. The "STEP Preview" modal shows the 3D model with colored bend markers and numbers.',
+      'tech.s3': 'Neutral-layer K-factor (0..1, preset 0.3–0.5)',
+      'tech.b3': 'A flexible parameter for flat pattern length and backgauge position. Presets for common materials and thicknesses, with manual fine-tuning for your process.',
+      'tech.s4': 'Springback calibration (Y table by material / thickness / angle / V)',
+      'tech.b4': 'A springback coefficient table used when calculating the overbend angle. Tuned to the specific metal, thickness, bend angle and die V-opening.',
+      'tech.s5': 'Auto-sorting of bends by increasing backgauge',
+      'tech.b5': 'An optimal bend order in which the part does not get in its own way or hit the tooling. Sorting is automatic with manual override.',
+      'tech.s6': 'Face mirroring, backgauge switch, blank rotation',
+      'tech.b6': 'Quick job-editing tools: mirror the part across its face, switch the backgauge reference, rotate the blank — without re-importing the file.',
+      'tech.s7': 'Custom ram, bed and back gauge sizes with cutouts',
+      'tech.b7': 'The machine model is tuned to your press: ram length, bed dimensions, back gauge positions and their cutouts. This affects collision checking accuracy.',
+      'tech.s8': 'Sectioning the blank with a plane (visual cut)',
+      'tech.b8': 'The visual cut tool lets you look inside the part and check bend positions, material thickness and areas hidden from the camera.',
+      'tech.s9': 'Part dimensions and weight HUD',
+      'tech.b9': 'An always-visible panel with part dimensions, flat pattern area and calculated weight — for example "582.8 × 632.2 × 43 mm, flat pattern 0.388 m², ≈ 4.60 kg".',
+      'tech.s10': 'Auto-run of all bends in order for engineer review',
+      'tech.b10': 'One click — and KONTUMA plays through all the bends of the job in sequence. The engineer sees the whole process and can catch a problem before the file goes to the shop floor.',
+      'pr.eyebrow': 'Pricing', 'pr.h2': 'Dozens of times cheaper than alternatives',
+      'pr.p': 'Radan, Lantek Bend and TruTops Bend cost $5,000 to $30,000 per seat plus annual support. KONTUMA — from ₽20,000 per device, perpetual license.',
+      'pr.badge': 'Popular',
+      'pr.n1': 'Basic', 'pr.p1': '₽20,000', 'pr.sm': 'perpetual', 'pr.dev1': '1 device', 'pr.sup0': ' · support —',
+      'pr.n2': 'Duo', 'pr.p2': '₽25,000', 'pr.dev2': '2 devices',
+      'pr.n3': 'Shop', 'pr.p3': '₽35,000', 'pr.dev4': '4 devices', 'pr.sup2w': ' · support 2 weeks',
+      'pr.f1': 'DXF and STEP import (OpenCascade)', 'pr.f2': '3D bending simulation', 'pr.f3': 'Punch and die library',
+      'pr.f4': 'Automatic tool placement', 'pr.f5': 'Collision checking (punch, die, machine, floor)',
+      'pr.f6': 'Force and backgauge calculation with K-factor', 'pr.f7': 'Springback calibration by metal',
+      'pr.f8': 'Bending cyclogram + Excel export', 'pr.f9': 'PDF passport + .opjob file for the operator tablet',
+      'pr.f10': 'Unlimited operator tablets',
+      'pr.buy': 'Buy',
+      'pr.note1': 'All prices exclude VAT.',
+      'pr.note2': 'The license is perpetual; updates are included for 1 year.',
+      'pr.note3': 'Renewing updates costs 15% of the price per year (you can skip it — the program keeps working on the current version).',
+      'pr.note4': '30-day money-back guarantee, no questions asked.',
+      'pr.note5': '14-day trial — free, no card required.',
+      'roi.eyebrow': 'Payback calculator', 'roi.h2': 'How much you lose without KONTUMA',
+      'roi.p': 'Move the sliders — see in how many months the program pays for itself in your shop.',
+      'roi.f1': 'Parts per month', 'roi.f2': 'Cost of one part (material + labor), ₽', 'roi.f3': 'Current scrap rate, %',
+      'roi.f4': 'Engineer hours to prepare one part', 'roi.f5': 'Engineer rate, ₽/hour',
+      'roi.legend': 'Number of devices',
+      'roi.s1': '1 device', 'roi.sp1': '₽20,000', 'roi.s2': '2 devices', 'roi.sp2': '₽25,000',
+      'roi.s4': '4 devices', 'roi.sp4': '₽35,000', 'roi.tag': 'Best value',
+      'roi.r1': 'Monthly savings', 'roi.r2': 'Annual savings', 'roi.r3': 'License payback', 'roi.r4': 'License price',
+      'roi.buy': 'Buy',
+      'roi.hint': 'This is an estimate. It is based on average KONTUMA customer results: scrap reduced by up to 70%, engineer preparation twice as fast. Actual numbers depend on your production and machine park.',
+      'faq.eyebrow': 'FAQ', 'faq.h2': 'Frequently asked questions',
+      'faq.q1': 'Do I need to install anything?',
+      'faq.a1': 'Yes. KONTUMA is a full-fledged Windows app. It installs in 5 minutes and runs locally on the engineer\'s computer. No cloud subscriptions or Windows Server licenses.',
+      'faq.q2': 'What input formats are supported?',
+      'faq.a2': 'DXF (LINE, LWPOLYLINE, ARC, CIRCLE) and STEP (via OpenCascade). Outputs: PDF passport, Excel table, .opjob job file and a PNG screenshot of the 3D view.',
+      'faq.q3': 'How many operators can work with one job?',
+      'faq.a3': 'Unlimited. One .opjob file can be opened on any number of tablets — for example, when a part is bent in parallel on several presses.',
+      'faq.q4': 'What if there is no internet at the shop floor?',
+      'faq.a4': 'The engineer\'s app works fully offline — as does the operator tablet, which opens the .opjob file locally. No internet is needed anywhere.',
+      'faq.q5': 'Is machine support available?',
+      'faq.a5': 'Yes. The machine is configured to specific parameters: ram length, bed dimensions, back gauges with cutouts. This directly affects collision checking accuracy.',
+      'faq.q6': 'Can it be adapted to our production?',
+      'faq.a6': 'Yes. For non-standard tasks (MES/ERP integration, on-premise deployment, training for your machine park) — custom terms on request.',
+      'cta.h2': 'Ready to bend your first defect-free part?',
+      'cta.p': 'Leave your email — we will send demo access and show KONTUMA on your part.',
+      'cta.ph': 'your@email.com', 'cta.submit': 'Request access',
+      'cta.fine': '14 days free · no card required',
+      'form.err': 'Please check the email address — it looks like a typo.',
+      'form.ok': 'Thank you! Your request has been received — we will get in touch within one business day.',
+      'foot.brand': 'A system for preparing and simulating sheet metal bending on CNC press brakes. A full-fledged Windows app.',
+      'foot.product': 'Product', 'foot.contacts': 'Contacts', 'foot.docs': 'Documents',
+      'foot.privacy': 'Privacy policy', 'foot.terms': 'Terms of service',
+      'foot.copy': '© 2025 KONTUMA. All rights reserved.', 'foot.vat': 'Prices exclude VAT.',
+      'aria.top': 'To top',
+      'shot.dxf': 'kontuma — part import', 'shot.tooling': 'kontuma — die library',
+      'shot.autoplace': 'kontuma — auto placement', 'shot.sim': 'kontuma — 3D bend simulation',
+      'shot.warn': 'kontuma — warnings', 'shot.force': 'kontuma — bending force',
+      'shot.cyclo': 'kontuma — cyclogram', 'shot.viewer': 'kontuma viewer — operator tablet',
+      'shot.step': 'KONTUMA — STEP preview', 'shot.pdf': 'KONTUMA — PDF bend passport, p. 1',
+      'alt.dxf': 'DXF import in KONTUMA: file loading panel and the bend table of detail.dxf',
+      'alt.tooling': 'Tooling library in KONTUMA: die preview folders and the "Dies on the machine" table',
+      'alt.autoplace': 'Automatic tool placement in KONTUMA: result "Placement complete: 5 of 5 groups"',
+      'alt.sim': '3D bending simulation in KONTUMA: bent part with a V-profile on the die, front view',
+      'alt.coll': 'Collision checking in KONTUMA: red rows in the bend table and punch highlighting',
+      'alt.force': 'Bending force calculation panel in KONTUMA and the "Backgauge" column in the bend table',
+      'alt.cyclo': 'Bending cyclogram in KONTUMA: Gantt chart by phases and the time table',
+      'alt.passport': 'KONTUMA viewer operator tablet: bend cards with photos, progress counter and the "Done" button',
+      'alt.editor': 'KONTUMA engineer editor: panel with "Die", "Punch", "Bends" trees and a 3D machine view with the part',
+      'alt.tablet': 'KONTUMA viewer operator tablet: bend cards with photos, a "3/8" counter, green progress bar and a blue "Done" button',
+      'alt.step': 'STEP preview in KONTUMA: 3D part model with bend markers and the "Assign face → bend" panel',
+      'alt.pdf': 'First page of the PDF bend passport: punch and die profiles, flat pattern with bend numbers, part dimensions and weight'
+    }
+  };
+
+  var currentLang = 'ru';
+  var roiRecalcRef = null;
+
+  /* Форматирование денег: RU «20 000 ₽» / EN «₽20,000» */
+  function fmtMoney(v) {
+    var locale = currentLang === 'ru' ? 'ru-RU' : 'en-US';
+    var num = new Intl.NumberFormat(locale).format(Math.round(v));
+    return currentLang === 'ru' ? num + ' ₽' : '₽' + num;
+  }
+
+  function fmtNum(v) {
+    return new Intl.NumberFormat(currentLang === 'ru' ? 'ru-RU' : 'en-US').format(v);
+  }
+
+  function fmtNum1(v) {
+    return new Intl.NumberFormat(currentLang === 'ru' ? 'ru-RU' : 'en-US', { maximumFractionDigits: 1 }).format(v);
+  }
+
+  /* ---------- Применение языка ---------- */
+  function applyLang(lang) {
+    if (lang !== 'ru' && lang !== 'en') { lang = 'ru'; }
+    currentLang = lang;
+    var dict = I18N[lang];
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key]) { el.textContent = dict[key]; }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key]) { el.placeholder = dict[key]; }
+    });
+
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-alt');
+      if (dict[key]) { el.alt = dict[key]; }
+    });
+
+    document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-title');
+      if (dict[key]) { el.title = dict[key]; }
+    });
+
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-aria');
+      if (dict[key]) { el.setAttribute('aria-label', dict[key]); }
+    });
+
+    document.title = dict['meta.title'] || document.title;
+
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && dict['meta.description']) { metaDesc.setAttribute('content', dict['meta.description']); }
+
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      var on = btn.getAttribute('data-lang') === lang;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+
+    /* Пересчитать калькулятор под новый формат чисел и валюты */
+    if (typeof roiRecalcRef === 'function') { roiRecalcRef(); }
+
+    try { localStorage.setItem('kontuma_lang', lang); } catch (_) {}
+  }
+
+  /* Выбор языка при загрузке: localStorage → иначе русский */
+  var savedLang = 'ru';
+  try {
+    var stored = localStorage.getItem('kontuma_lang');
+    if (stored === 'ru' || stored === 'en') { savedLang = stored; }
+  } catch (_) {}
+
+  applyLang(savedLang);
+
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      applyLang(btn.getAttribute('data-lang'));
+    });
+  });
 
   /* ---------- Плавное появление при скролле ---------- */
   var revealEls = document.querySelectorAll('.reveal');
@@ -2224,13 +2555,13 @@ button,input{font-family:inherit;font-size:inherit}
 
     if (!valid) {
       msg.style.color = '#ff453a';
-      msg.textContent = 'Проверьте адрес email — кажется, там опечатка.';
+      msg.textContent = I18N[currentLang]['form.err'];
       input.focus();
       return;
     }
 
     msg.style.color = '#30d158';
-    msg.textContent = 'Спасибо! Заявка принята — свяжемся в течение рабочего дня.';
+    msg.textContent = I18N[currentLang]['form.ok'];
     form.reset();
   });
 
@@ -2238,15 +2569,12 @@ button,input{font-family:inherit;font-size:inherit}
   var roiCard = document.getElementById('roi');
 
   if (roiCard) {
-    var nfInt = new Intl.NumberFormat('ru-RU');
-    var nfOne = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 1 });
-
     var roiInputs = [
-      { input: 'roiDetails', out: 'roiDetailsVal', fmt: function (v) { return nfInt.format(v); } },
-      { input: 'roiCost',    out: 'roiCostVal',    fmt: function (v) { return nfInt.format(v) + ' ₽'; } },
-      { input: 'roiDefect',  out: 'roiDefectVal',  fmt: function (v) { return nfOne.format(v) + ' %'; } },
-      { input: 'roiHours',   out: 'roiHoursVal',   fmt: function (v) { return nfOne.format(v) + ' ч'; } },
-      { input: 'roiRate',    out: 'roiRateVal',    fmt: function (v) { return nfInt.format(v) + ' ₽/ч'; } }
+      { input: 'roiDetails', out: 'roiDetailsVal', fmt: function (v) { return fmtNum(Math.round(v)); } },
+      { input: 'roiCost',    out: 'roiCostVal',    fmt: function (v) { return fmtMoney(v); } },
+      { input: 'roiDefect',  out: 'roiDefectVal',  fmt: function (v) { return fmtNum1(v) + ' %'; } },
+      { input: 'roiHours',   out: 'roiHoursVal',   fmt: function (v) { return fmtNum1(v) + (currentLang === 'ru' ? ' ч' : ' h'); } },
+      { input: 'roiRate',    out: 'roiRateVal',    fmt: function (v) { return fmtMoney(v) + (currentLang === 'ru' ? '/ч' : '/h'); } }
     ];
 
     var roiTiles = roiCard.querySelectorAll('.roi-tile');
@@ -2286,9 +2614,9 @@ button,input{font-family:inherit;font-size:inherit}
       var paybackMonths = perMonth > 0 ? price / perMonth : Infinity;
       var paybackDays = isFinite(paybackMonths) ? paybackMonths * 30 : Infinity;
 
-      document.getElementById('roiSaveMonth').textContent = nfInt.format(Math.round(perMonth)) + ' ₽';
-      document.getElementById('roiSaveYear').textContent = nfInt.format(Math.round(perYear)) + ' ₽';
-      document.getElementById('roiPrice').textContent = nfInt.format(price) + ' ₽';
+      document.getElementById('roiSaveMonth').textContent = fmtMoney(Math.round(perMonth));
+      document.getElementById('roiSaveYear').textContent = fmtMoney(Math.round(perYear));
+      document.getElementById('roiPrice').textContent = fmtMoney(price);
 
       var paybackEl = document.getElementById('roiPayback');
       paybackEl.classList.remove('roi-muted');
@@ -2296,13 +2624,21 @@ button,input{font-family:inherit;font-size:inherit}
       if (!isFinite(paybackMonths)) {
         paybackEl.textContent = '—';
       } else if (paybackMonths < 1) {
-        paybackEl.textContent = 'меньше месяца';
+        paybackEl.textContent = currentLang === 'ru' ? 'меньше месяца' : 'less than a month';
       } else if (paybackMonths < 24) {
-        paybackEl.textContent = nfOne.format(paybackMonths) + ' ' + plural(paybackMonths, 'месяц', 'месяца', 'месяцев');
+        if (currentLang === 'ru') {
+          paybackEl.textContent = fmtNum1(paybackMonths) + ' ' + plural(paybackMonths, 'месяц', 'месяца', 'месяцев');
+        } else {
+          paybackEl.textContent = fmtNum1(paybackMonths) + (paybackMonths >= 0.95 && paybackMonths < 1.05 ? ' month' : ' months');
+        }
       } else {
         paybackEl.classList.add('roi-muted');
         var years = paybackMonths / 12;
-        paybackEl.textContent = nfOne.format(years) + ' ' + plural(years, 'год', 'года', 'лет');
+        if (currentLang === 'ru') {
+          paybackEl.textContent = fmtNum1(years) + ' ' + plural(years, 'год', 'года', 'лет');
+        } else {
+          paybackEl.textContent = fmtNum1(years) + (years >= 0.95 && years < 1.05 ? ' year' : ' years');
+        }
       }
     }
 
@@ -2324,6 +2660,7 @@ button,input{font-family:inherit;font-size:inherit}
 
     syncTiles();
     recalcRoi();
+    roiRecalcRef = recalcRoi;
   }
 
   /* ---------- Аккордеон: закрываем соседние details ---------- */
