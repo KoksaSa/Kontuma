@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(113099512, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113099512" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KONTUMA — симуляция гибки листового металла | Приложение для Windows</title>
@@ -603,13 +620,15 @@ button,input{font-family:inherit;font-size:inherit}
   background:#0a101c;
 }
 
-.shot-body img{
+.shot-body img,
+.shot-body video{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
   object-position:top left;
+  background:#0a101c;
 }
 
 .shot-ph{
@@ -1972,8 +1991,8 @@ body.dl-lock{overflow:hidden}
           <div class="shot">
             <div class="shot-bar"><i></i><i></i><i></i><span>viewer.html — .opjob</span></div>
             <div class="shot-body">
-              <div class="shot-ph" data-label="планшет в цеху.png"></div>
-              <img src="./photo/планшет в цеху.png" alt="Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик «3/8», зелёный прогресс-бар и синяя кнопка «Готово»" data-i18n-alt="alt.tablet" loading="lazy" decoding="async" onerror="this.remove()">
+              <div class="shot-ph" data-label="планшет в цеху.jpg"></div>
+              <img src="./photo/планшет в цеху.jpg" alt="Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик «3/8», зелёный прогресс-бар и синяя кнопка «Готово»" data-i18n-alt="alt.tablet" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
           <p class="duo-caption" data-i18n="duo.cap2">Плитки гибов с фото, счётчик ✅ 3/8, синяя кнопка «Готово». Интернет не нужен.</p>
@@ -2043,8 +2062,10 @@ body.dl-lock{overflow:hidden}
         <div class="shot">
           <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.demo">KONTUMA — демо: импорт DXF → 3D-гиб → файл оператору</span></div>
           <div class="shot-body">
-            <div class="shot-ph" data-label="demo.gif"></div>
-            <img src="./photo/demo.gif" alt="Демонстрация работы KONTUMA: импорт DXF, 3D-симуляция гиба на матрице и выдача файла для планшета оператора" data-i18n-alt="alt.demo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='./photo/3D симуляция гибки.png'">
+            <div class="shot-ph" data-label="demo.mp4"></div>
+            <video src="./photo/demo.mp4" poster="./photo/3D симуляция гибки.png" controls autoplay muted loop playsinline preload="metadata" onerror="this.onerror=null;this.style.display='none';this.insertAdjacentHTML('beforebegin','&lt;img src=&quot;./photo/3D симуляция гибки.png&quot; alt=&quot;Демонстрация работы KONTUMA: импорт DXF, 3D-симуляция гиба на матрице и выдача файла для планшета оператора&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;');">
+              <img src="./photo/3D симуляция гибки.png" alt="Демонстрация работы KONTUMA: импорт DXF, 3D-симуляция гиба на матрице и выдача файла для планшета оператора" data-i18n-alt="alt.demo">
+            </video>
           </div>
         </div>
         <figcaption data-i18n="exp.figcap">Как это выглядит в работе: импорт DXF/STEP, 3D-гиб с проверкой коллизий, экспорт паспорта и файла для оператора</figcaption>
@@ -2962,6 +2983,13 @@ body.dl-lock{overflow:hidden}
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  /* ---------- Цели Яндекс.Метрики ---------- */
+  function ymGoal(id, title) {
+    try {
+      if (typeof window.ym === 'function') { window.ym(113099512, 'reachGoal', id, { title: title || '' }); }
+    } catch (e) { /* счётчик ещё не загрузился — не критично */ }
+  }
+
   /* ---------- Почта: заявка и заказ лицензии ---------- */
   var MAILTO = 'mailto:kontumapro@gmail.com';
 
@@ -2994,6 +3022,8 @@ body.dl-lock{overflow:hidden}
     }
 
     var t = I18N[currentLang];
+
+    ymGoal('lead_form', 'Заявка с email: ' + value);
 
     openMailto(mailtoUrl(t['form.subject'], [
       t['form.body'],
@@ -3066,6 +3096,7 @@ body.dl-lock{overflow:hidden}
 
       lines.push('', t['buy.from']);
 
+      ymGoal('buy_click', 'Заказ лицензии: ' + (name || 'KONTUMA') + (price ? ' — ' + fmtMoney(price) : ''));
       openMailto(mailtoUrl(t['buy.subject'].replace('{p}', name || 'KONTUMA'), lines));
     });
   });
@@ -3190,6 +3221,7 @@ body.dl-lock{overflow:hidden}
     var dlLastFocus = null;
 
     function dlOpen(trigger) {
+      ymGoal('download_click', 'Клик «Попробовать бесплатно»');
       dlLastFocus = trigger || document.activeElement;
       dlModal.classList.add('open');
       dlModal.setAttribute('aria-hidden', 'false');
@@ -3214,6 +3246,14 @@ body.dl-lock{overflow:hidden}
 
     dlModal.querySelectorAll('[data-dl-close]').forEach(function (el) {
       el.addEventListener('click', dlClose);
+    });
+
+    dlModal.querySelectorAll('.dl-opt').forEach(function (link) {
+      link.addEventListener('click', function () {
+        var isGitHub = (link.getAttribute('href') || '').indexOf('github.com') !== -1;
+        ymGoal(isGitHub ? 'download_github' : 'download_yandex',
+               isGitHub ? 'Скачивание: GitHub Releases' : 'Скачивание: Яндекс Диск');
+      });
     });
 
     document.addEventListener('keydown', function (e) {
