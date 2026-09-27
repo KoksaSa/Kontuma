@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Карта сайта для одной страницы не требуется.
+# Если появится — раскомментируйте:
+# Sitemap: https://koksasa.github.io/Kontuma/sitemap.xml
