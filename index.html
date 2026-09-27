@@ -3,8 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KONTUMA — гибка без переделок | Приложение для Windows: симуляция гибки листового металла</title>
-<meta name="description" content="KONTUMA — приложение для Windows: подготовка и симуляция гибки листового металла на листогибочных прессах с ЧПУ. От DXF/STEP до карты гибки и планшета оператора за 2 минуты.">
+<title>KONTUMA — симуляция гибки листового металла | Приложение для Windows</title>
+<meta name="description" content="KONTUMA — приложение для Windows: подготовка и симуляция гибки листового металла на листогибочных прессах с ЧПУ. От DXF/STEP до карты гибки за 2 минуты. От 20 000 ₽, бессрочная лицензия.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b1220">
+<meta name="application-name" content="KONTUMA">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="https://koksasa.github.io/Kontuma/">
+
+<!-- Open Graph / Twitter: превью при распространении ссылки -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KONTUMA">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="KONTUMA — симуляция гибки листового металла">
+<meta property="og:description" content="Приложение для Windows: подготовка и симуляция гибки на листогибочных прессах с ЧПУ. От DXF/STEP до карты гибки и планшета оператора за 2 минуты.">
+<meta property="og:url" content="https://koksasa.github.io/Kontuma/">
+<meta property="og:image" content="https://koksasa.github.io/Kontuma/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="KONTUMA — интерфейс приложения и 3D-симуляция гибки">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KONTUMA — симуляция гибки листового металла">
+<meta name="twitter:description" content="Приложение для Windows: DXF/STEP, 3D-симуляция гибки, проверка коллизий, PDF-паспорт и планшет оператора.">
+<meta name="twitter:image" content="https://koksasa.github.io/Kontuma/og-image.png">
+
+<!-- Schema.org: приложение и тарифы -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "KONTUMA",
+  "alternateName": "KONTUMA Bend Simulation",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "CAD/CAM — sheet metal bending simulation",
+  "operatingSystem": "Windows 10, Windows 11",
+  "inLanguage": ["ru", "en"],
+  "downloadUrl": "https://github.com/KoksaSa/Kontuma/releases/latest",
+  "codeRepository": "https://github.com/KoksaSa/Kontuma",
+  "url": "https://koksasa.github.io/Kontuma/",
+  "description": "Windows app for preparing and simulating sheet metal bending on CNC press brakes: DXF/STEP import, 3D simulation, tooling library, automatic tool placement, collision checking, force and backgauge calculation, bending cyclogram, PDF passport and .opjob operator file.",
+  "featureList": [
+    "DXF and STEP import (OpenCascade)",
+    "3D bending simulation",
+    "Punch and die tooling library",
+    "Automatic tool placement",
+    "Collision checking (punch, die, machine, floor)",
+    "Force and backgauge calculation with K-factor",
+    "Springback calibration by metal",
+    "Bending cyclogram with Excel export",
+    "PDF bend passport and .opjob file for the operator tablet",
+    "Unlimited operator tablets"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Basic — 1 device",
+      "category": "Perpetual license",
+      "price": "20000",
+      "priceCurrency": "RUB",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Duo — 2 devices",
+      "category": "Perpetual license",
+      "price": "25000",
+      "priceCurrency": "RUB",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Shop — 4 devices",
+      "category": "Perpetual license",
+      "price": "35000",
+      "priceCurrency": "RUB",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "KONTUMA",
+    "email": "kontumapro@gmail.com",
+    "url": "https://koksasa.github.io/Kontuma/"
+  }
+}
+</script>
+
+<!-- Schema.org: FAQ (EN — язык по умолчанию) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to install anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. KONTUMA is a full-fledged Windows app. It installs in 5 minutes and runs locally on the engineer's computer. No cloud subscriptions or Windows Server licenses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What input formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DXF (LINE, LWPOLYLINE, ARC, CIRCLE) and STEP (via OpenCascade). Outputs: PDF passport, Excel table, .opjob job file and a PNG screenshot of the 3D view."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many operators can work with one job?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unlimited. One .opjob file can be opened on any number of tablets — for example, when a part is bent in parallel on several presses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if there is no internet at the shop floor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The engineer's app works fully offline — as does the operator tablet, which opens the .opjob file locally. No internet is needed anywhere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is machine support available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The machine is configured to specific parameters: ram length, bed dimensions, back gauges with cutouts. This directly affects collision checking accuracy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it be adapted to our production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. For non-standard tasks (MES/ERP integration, on-premise deployment, training for your machine park) — custom terms on request."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Schema.org: FAQ (RU) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "ru",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Нужно ли что-то устанавливать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. KONTUMA — полноценное приложение для Windows. Устанавливается за 5 минут, работает локально на компьютере технолога. Никаких облачных подписок и лицензий Windows Server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие форматы на входе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DXF (LINE, LWPOLYLINE, ARC, CIRCLE) и STEP (через OpenCascade). На выходе — PDF-паспорт, Excel-таблица, файл задания .opjob и PNG-скриншот 3D-вида."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько операторов могут работать с одним заданием?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не ограничено. Один файл .opjob можно открыть на любом количестве планшетов — например, если деталь гнут параллельно на нескольких прессах."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если нет интернета в цеху?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Приложение технолога работает полностью офлайн — как и планшет оператора, который открывает файл .opjob локально. Интернет не нужен нигде."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Есть ли поддержка оборудования?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Станок настраивается под конкретные параметры: длина траверсы, габариты станины, задние стойки с вырезами. Это напрямую влияет на точность проверки коллизий."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли доработать под наше производство?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Для нестандартных задач (интеграция с MES/ERP, развёртывание on-premise, обучение под ваш парк станков) — индивидуальные условия по запросу."
+      }
+    }
+  ]
+}
+</script>
 <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARoSURBVFhH7VZbbxtFGN0nxBu/gRcEPwDUIlQJ8QLtQxCiNGlJWxKBCKixAJeoRCXBAlWtGpdGpShIUECoCB5QoVJBVUtKCb2kkIoqJY4d2/El9tpJNl6v1+td23vQNzN78Spc3njAIx3NaHZnvjPnO3ORpG7plm75r4uuxrfYdjmkKfGQpsZDuroUQMqrNV/b6Wd94tu/gTs2FbJtJSTVlMUJsLIOQAGwAaACQBWoBtqbQQOgA6htAvrmwD+G5gMkQ01EKHBdS6JeJaRg1DICWTT0LAyd1x5yvL+W4e16HqZRgGmsoFFfQYPVeQ7xL68JztzLjIQgUIFRS8PQUhw6TZz1JnHBA6BdAuyy2w+sMfWajSL7bjYKnIQhand8DgaRqGVhaERAg2RoyQgxIUYsONVOcDGJ2SgKyGi3FYx/fBZPj05AreaYzN/NXMWjA6MY/+QsLGsVlim7//OaiPjIMBKZAAFtWQTPiOA8cMMoouEQMGUm2/aDR3HPEy8yv0zPzUJ6ZA8e2PUG0oUE2q1VFpiPIQJOm+Yq+JTIMvKS7qaAE2DSu/J1giahf3cejuL+3jAuXPsZ0tZ+PNQXhrxOkiriPy+wC1qIqwD5ihSokQdIgWonAcpjkIBYERHY885J3Pv4IO7b/gpen/wUayr5gAf3VsvhpIGTIAVWhIGJsEtARYOCM1f78u842p2IE+gdOwFp6z6MTE5h6v0IksnbrN+vFB/j8wERYiYWCrgeEAScreEo4LL1rYqnYAN9kVPof/sY3h0L49DIMPoGBpFY4iQMg3ZBpwK87ZjQr4CPAK2etuLmHvBWZLcVfHn+W/Tu24vJ0ydhaGlMfhDFzr37cXfhFlpNMqFDIOgjh0BOKEApYLtAeEBL8y0YIGBaJViEVpmdeF9/8wWip6L8dGuTKmVMnDiCz7/6jJ1yVrPMdozZLHm5d+AeTm4KaBd4KfDOgE4D1tUsNDmB6kqMBaBU1OQ4Kst3ocsJtOgkrZCHCjBqeYa6mvHtAD6XUc+zGJ4CLgHaBSIFwoRmqwStFMelnn7MRY5gbuw9zIZHMf3MfswOj+DXt8Zx9fmXcevgYWTOn8PlHbtx49UwZgYOYGHqI1zu6Yea/wNWe9WngOOBgAJ1LY06Hcd0VgsCbVQgX/sR5x7chuvDb+Lma4dwY3gEV54bxPdbdmDh9IeInzmD+WNR/DJwANPPvoAftvXg4pO78NPul3DhsadQuHIRLfKYowIpIO4aHwFxFzDQSZhjBCyzBK24yLCRuoPizCWszd+ErqRRLcSgZuZRKy+hkr4D+fo0NEpJ8ncosd+gxG8z9bTCIiyr7DsH6BT8KwIddwHdcjlYloxmu8zQwhqadhlWU4bVklltWkXWbmKNSU01g73KTGuRER33+1bP74IqJL0SO87fA/QOcN4ChM3ufP+9HrzfnTfB370L/G8B8R7QK7GHbbs0pFfiQ3plSdSiXQ0iLRDs93/7J1AMPsa214eCL7Ru6Zb/X/kTFL6PQVb3msAAAAAASUVORK5CYII=">
 <style>
 /* ============================================================
@@ -258,7 +463,7 @@ button,input{font-family:inherit;font-size:inherit}
 
 .hero-bg{
   position:absolute;inset:0;
-  background-image:url('./screens/screen-01-hero.jpg');
+  background-image:url('./photo/Приложение для windowa.png');
   background-size:cover;
   background-position:center 40%;
   filter:brightness(.42) saturate(.85);
@@ -1087,6 +1292,21 @@ button,input{font-family:inherit;font-size:inherit}
   min-height:20px;
 }
 
+.cta-mail{
+  margin-top:16px;
+  font-size:13.5px;
+  color:var(--muted-2);
+}
+
+.cta-mail a{
+  color:var(--text);
+  font-weight:600;
+  border-bottom:1px solid rgba(255,255,255,.22);
+  transition:color .2s ease,border-color .2s ease;
+}
+
+.cta-mail a:hover{color:var(--green);border-color:var(--green)}
+
 .cta-fine{
   margin-top:20px;
   font-size:12.8px;
@@ -1175,6 +1395,146 @@ button,input{font-family:inherit;font-size:inherit}
   font-size:13px;
   color:var(--muted-2);
 }
+
+/* ============================================================
+   МОДАЛЬНОЕ ОКНО ВЫБОРА ЗАГРУЗКИ
+   ============================================================ */
+.dl-modal{
+  position:fixed;
+  inset:0;
+  z-index:120;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .25s ease,visibility .25s;
+}
+
+.dl-modal.open{opacity:1;visibility:visible}
+
+.dl-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(4,8,17,.74);
+  backdrop-filter:blur(6px);
+}
+
+.dl-dialog{
+  position:relative;
+  width:100%;
+  max-width:520px;
+  padding:32px;
+  border-radius:var(--radius-lg);
+  background:var(--panel);
+  border:1px solid var(--border-strong);
+  box-shadow:var(--shadow-lg);
+  transform:translateY(14px) scale(.98);
+  transition:transform .25s cubic-bezier(.22,.61,.36,1);
+}
+
+.dl-modal.open .dl-dialog{transform:none}
+
+.dl-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  transition:color .2s,border-color .2s,background .2s;
+}
+.dl-close:hover{color:var(--text);border-color:var(--border-strong);background:rgba(255,255,255,.05)}
+.dl-close svg{width:16px;height:16px}
+
+.dl-dialog h3{
+  font-size:22px;
+  margin-bottom:8px;
+  padding-right:32px;
+}
+
+.dl-sub{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:22px;
+}
+
+.dl-opts{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.dl-opt{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-height:64px;
+  padding:16px 18px;
+  border-radius:var(--radius);
+  background:var(--panel-2);
+  border:1px solid var(--border);
+  transition:border-color .2s ease,background .2s ease,transform .2s ease;
+}
+
+.dl-opt:hover{
+  border-color:rgba(48,209,88,.5);
+  background:rgba(48,209,88,.07);
+  transform:translateY(-2px);
+}
+
+.dl-opt-icon{
+  flex:none;
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:rgba(255,255,255,.05);
+  color:var(--green);
+}
+.dl-opt-icon svg{width:20px;height:20px}
+
+.dl-opt-text{flex:1;min-width:0}
+
+.dl-opt-title{
+  display:block;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+
+.dl-opt-desc{
+  display:block;
+  font-size:13px;
+  color:var(--muted-2);
+  margin-top:2px;
+  line-height:1.45;
+}
+
+.dl-opt-arrow{
+  flex:none;
+  color:var(--muted-2);
+  transition:color .2s ease,transform .2s ease;
+}
+.dl-opt:hover .dl-opt-arrow{color:var(--green);transform:translateX(3px)}
+
+.dl-note{
+  margin-top:20px;
+  padding-top:16px;
+  border-top:1px solid var(--border);
+  font-size:12.5px;
+  line-height:1.55;
+  color:var(--muted-2);
+}
+
+body.dl-lock{overflow:hidden}
 
 /* ============================================================
    НАВЕРХ
@@ -1283,6 +1643,11 @@ button,input{font-family:inherit;font-size:inherit}
   .ps-col{padding:26px 22px}
   .card{padding:18px}
   .to-top{right:16px;bottom:16px;width:44px;height:44px}
+
+  .dl-dialog{padding:22px}
+  .dl-dialog h3{font-size:19px}
+  .dl-opt{padding:14px;gap:12px}
+  .dl-opt-icon{width:34px;height:34px}
 }
 </style>
 </head>
@@ -1313,7 +1678,7 @@ button,input{font-family:inherit;font-size:inherit}
         <button type="button" data-lang="ru" class="lang-btn active" aria-pressed="true">RU</button>
         <button type="button" data-lang="en" class="lang-btn" aria-pressed="false">EN</button>
       </div>
-      <a class="btn btn-primary" href="#cta" data-i18n="header.cta">Попробовать бесплатно</a>
+      <a class="btn btn-primary" href="https://github.com/KoksaSa/Kontuma/releases/latest" data-download-open data-i18n="header.cta">Попробовать бесплатно</a>
     </div>
   </div>
 </header>
@@ -1332,13 +1697,10 @@ button,input{font-family:inherit;font-size:inherit}
 
       <h1>KONTUMA —<br><span class="grad-text" data-i18n="hero.h1">гибка без переделок</span></h1>
 
-      <p class="hero-sub" data-i18n="hero.sub">
-        От DXF до готовой карты гибки за 2 минуты. Полноценное приложение для Windows.
-        Инструкция оператору — на планшет в цех.
-      </p>
+      <p class="hero-sub" data-i18n="hero.sub">От DXF до готовой карты гибки за 2 минуты. Полноценное приложение для Windows. Инструкция оператору — на планшет в цех.</p>
 
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#cta">
+        <a class="btn btn-primary" href="https://github.com/KoksaSa/Kontuma/releases/latest" data-download-open>
           <span data-i18n="hero.cta1">Попробовать бесплатно</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -1440,7 +1802,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.dxf">kontuma — импорт детали</span></div>
             <div class="shot-body">
               <div class="shot-ph" data-label="Импорт dxf и step.png"></div>
-              <img src="./photo/Импорт dxf и step.png" alt="Импорт DXF в KONTUMA: панель загрузки файла и таблица гибов детали detail.dxf" data-i18n-alt="alt.dxf" loading="lazy" onerror="this.remove()">
+              <img src="./photo/Импорт dxf и step.png" alt="Импорт DXF в KONTUMA: панель загрузки файла и таблица гибов детали detail.dxf" data-i18n-alt="alt.dxf" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
         </article>
@@ -1458,7 +1820,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.tooling">kontuma — библиотека матриц</span></div>
             <div class="shot-body">
               <div class="shot-ph" data-label="Библиотека инструмента.png"></div>
-              <img src="./photo/Библиотека инструмента.png" alt="Библиотека инструмента KONTUMA: папки с превью матриц и таблица «Матрицы на станке»" data-i18n-alt="alt.tooling" loading="lazy" onerror="this.remove()">
+              <img src="./photo/Библиотека инструмента.png" alt="Библиотека инструмента KONTUMA: папки с превью матриц и таблица «Матрицы на станке»" data-i18n-alt="alt.tooling" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
         </article>
@@ -1476,7 +1838,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.autoplace">kontuma — авто-расстановка</span></div>
             <div class="shot-body">
               <div class="shot-ph" data-label="Авторастановка штампов.png"></div>
-              <img src="./photo/Авторастановка штампов.png" alt="Авто-расстановка штампов в KONTUMA: результат «Расстановка выполнена: 5 из 5 групп»" data-i18n-alt="alt.autoplace" loading="lazy" onerror="this.remove()">
+              <img src="./photo/Авторастановка штампов.png" alt="Авто-расстановка штампов в KONTUMA: результат «Расстановка выполнена: 5 из 5 групп»" data-i18n-alt="alt.autoplace" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
         </article>
@@ -1494,7 +1856,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.sim">kontuma — 3D-симуляция гибки</span></div>
             <div class="shot-body">
               <div class="shot-ph" data-label="3D симуляция гибки.png"></div>
-              <img src="./photo/3D симуляция гибки.png" alt="3D-симуляция гибки в KONTUMA: согнутая деталь с V-профилем на матрице, вид спереди" data-i18n-alt="alt.sim" loading="lazy" onerror="this.remove()">
+              <img src="./photo/3D симуляция гибки.png" alt="3D-симуляция гибки в KONTUMA: согнутая деталь с V-профилем на матрице, вид спереди" data-i18n-alt="alt.sim" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
         </article>
@@ -1512,7 +1874,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.warn">kontuma — предупреждения</span></div>
             <div class="shot-body">
               <div class="shot-ph" data-label="Проверка колизий.png"></div>
-              <img src="./photo/Проверка колизий.png" alt="Проверка коллизий в KONTUMA: красные строки таблицы гибов и подсветка пуансона" data-i18n-alt="alt.coll" loading="lazy" onerror="this.remove()">
+              <img src="./photo/Проверка колизий.png" alt="Проверка коллизий в KONTUMA: красные строки таблицы гибов и подсветка пуансона" data-i18n-alt="alt.coll" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
         </article>
@@ -1530,7 +1892,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.force">kontuma — усилие гибки</span></div>
             <div class="shot-body">
               <div class="shot-ph" data-label="Расчет усилий и упора.png"></div>
-              <img src="./photo/Расчет усилий и упора.png" alt="Панель расчёта усилия гибки в KONTUMA и колонка «Упор» в таблице гибов" data-i18n-alt="alt.force" loading="lazy" onerror="this.remove()">
+              <img src="./photo/Расчет усилий и упора.png" alt="Панель расчёта усилия гибки в KONTUMA и колонка «Упор» в таблице гибов" data-i18n-alt="alt.force" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
         </article>
@@ -1548,7 +1910,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.cyclo">kontuma — циклограмма</span></div>
             <div class="shot-body">
               <div class="shot-ph" data-label="циклограмма гибки.png"></div>
-              <img src="./photo/циклограмма гибки.png" alt="Циклограмма гибки в KONTUMA: диаграмма Ганта по фазам и таблица времён" data-i18n-alt="alt.cyclo" loading="lazy" onerror="this.remove()">
+              <img src="./photo/циклограмма гибки.png" alt="Циклограмма гибки в KONTUMA: диаграмма Ганта по фазам и таблица времён" data-i18n-alt="alt.cyclo" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
         </article>
@@ -1566,7 +1928,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.viewer">kontuma viewer — планшет оператора</span></div>
             <div class="shot-body">
               <div class="shot-ph" data-label="паспорт для оператора.png"></div>
-              <img src="./photo/паспорт для оператора.png" alt="Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик прогресса и кнопка «Готово»" data-i18n-alt="alt.passport" loading="lazy" onerror="this.remove()">
+              <img src="./photo/паспорт для оператора.png" alt="Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик прогресса и кнопка «Готово»" data-i18n-alt="alt.passport" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
         </article>
@@ -1596,7 +1958,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="shot-bar"><i></i><i></i><i></i><span>KONTUMA — BendEditor</span></div>
             <div class="shot-body">
               <div class="shot-ph" data-label="Приложение для windowa.png"></div>
-              <img src="./photo/Приложение для windowa.png" alt="Редактор технолога KONTUMA: панель с деревьями «Матрица», «Пуансон», «Гибы» и 3D-вид станка с деталью" data-i18n-alt="alt.editor" loading="lazy" onerror="this.remove()">
+              <img src="./photo/Приложение для windowa.png" alt="Редактор технолога KONTUMA: панель с деревьями «Матрица», «Пуансон», «Гибы» и 3D-вид станка с деталью" data-i18n-alt="alt.editor" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
           <p class="duo-caption" data-i18n="duo.cap1">Большой 3D-вид, панель инструмента, таблица гибов, расчёт усилия и коллизий.</p>
@@ -1611,7 +1973,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="shot-bar"><i></i><i></i><i></i><span>viewer.html — .opjob</span></div>
             <div class="shot-body">
               <div class="shot-ph" data-label="планшет в цеху.png"></div>
-              <img src="./photo/планшет в цеху.png" alt="Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик «3/8», зелёный прогресс-бар и синяя кнопка «Готово»" data-i18n-alt="alt.tablet" loading="lazy" onerror="this.remove()">
+              <img src="./photo/планшет в цеху.png" alt="Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик «3/8», зелёный прогресс-бар и синяя кнопка «Готово»" data-i18n-alt="alt.tablet" loading="lazy" decoding="async" onerror="this.remove()">
             </div>
           </div>
           <p class="duo-caption" data-i18n="duo.cap2">Плитки гибов с фото, счётчик ✅ 3/8, синяя кнопка «Готово». Интернет не нужен.</p>
@@ -1679,13 +2041,13 @@ button,input{font-family:inherit;font-size:inherit}
 
       <figure class="export-preview reveal">
         <div class="shot">
-          <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.pdf">KONTUMA — PDF-паспорт гибки, стр. 1</span></div>
+          <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.demo">KONTUMA — демо: импорт DXF → 3D-гиб → файл оператору</span></div>
           <div class="shot-body">
-            <div class="shot-ph" data-label="screen-11-pdf.jpg"></div>
-            <img src="./screens/screen-11-pdf.jpg" alt="Первая страница PDF-паспорта гибки: профили пуансона и матрицы, развёртка с номерами гибов, габариты и масса детали" data-i18n-alt="alt.pdf" loading="lazy" onerror="this.remove()">
+            <div class="shot-ph" data-label="demo.gif"></div>
+            <img src="./photo/demo.gif" alt="Демонстрация работы KONTUMA: импорт DXF, 3D-симуляция гиба на матрице и выдача файла для планшета оператора" data-i18n-alt="alt.demo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='./photo/3D симуляция гибки.png'">
           </div>
         </div>
-        <figcaption data-i18n="exp.figcap">PDF-паспорт: профили инструмента, развёртка с номерами гибов, габариты, масса и фото каждого гиба</figcaption>
+        <figcaption data-i18n="exp.figcap">Как это выглядит в работе: импорт DXF/STEP, 3D-гиб с проверкой коллизий, экспорт паспорта и файла для оператора</figcaption>
       </figure>
     </div>
   </section>
@@ -1705,9 +2067,7 @@ button,input{font-family:inherit;font-size:inherit}
 
         <details>
           <summary data-i18n="tech.s1">Поддержка DXF (LINE, LWPOLYLINE, ARC, CIRCLE)</summary>
-          <div class="acc-body" data-i18n="tech.b1">
-            Парсер читает основные примитивы DXF, распознаёт линии гибов по слоям и типам линий, склеивает разорванный контур в замкнутый профиль. Поддерживается авто-детект виртуальных гибов по микро-вырезам.
-          </div>
+          <div class="acc-body" data-i18n="tech.b1">Парсер читает основные примитивы DXF, распознаёт линии гибов по слоям и типам линий, склеивает разорванный контур в замкнутый профиль. Поддерживается авто-детект виртуальных гибов по микро-вырезам.</div>
         </details>
 
         <details>
@@ -1718,7 +2078,7 @@ button,input{font-family:inherit;font-size:inherit}
               <div class="shot-bar"><i></i><i></i><i></i><span data-i18n="shot.step">KONTUMA — предпросмотр STEP</span></div>
               <div class="shot-body">
                 <div class="shot-ph" data-label="Поддержка step.png"></div>
-                <img src="./photo/Поддержка step.png" alt="Предпросмотр STEP в KONTUMA: 3D-модель детали с маркерами гибов и панель «Назначить грань → гиб»" data-i18n-alt="alt.step" loading="lazy" onerror="this.remove()">
+                <img src="./photo/Поддержка step.png" alt="Предпросмотр STEP в KONTUMA: 3D-модель детали с маркерами гибов и панель «Назначить грань → гиб»" data-i18n-alt="alt.step" loading="lazy" decoding="async" onerror="this.remove()">
               </div>
             </div>
           </div>
@@ -1726,58 +2086,42 @@ button,input{font-family:inherit;font-size:inherit}
 
         <details>
           <summary data-i18n="tech.s3">K-фактор нейтрального слоя (0..1, пресет 0.3–0.5)</summary>
-          <div class="acc-body" data-i18n="tech.b3">
-            Гибкий параметр для расчёта длины развёртки и положения упора. Пресеты под распространённые материалы и толщины, с возможностью ручной корректировки под вашу технологию.
-          </div>
+          <div class="acc-body" data-i18n="tech.b3">Гибкий параметр для расчёта длины развёртки и положения упора. Пресеты под распространённые материалы и толщины, с возможностью ручной корректировки под вашу технологию.</div>
         </details>
 
         <details>
           <summary data-i18n="tech.s4">Калибровка пружинения (таблица Y по материалу / толщине / углу / V)</summary>
-          <div class="acc-body" data-i18n="tech.b4">
-            Таблица коэффициентов пружинения, которая учитывается при расчёте угла подгибки. Настраивается под конкретный металл, толщину, угол гиба и V-раскрытие матрицы.
-          </div>
+          <div class="acc-body" data-i18n="tech.b4">Таблица коэффициентов пружинения, которая учитывается при расчёте угла подгибки. Настраивается под конкретный металл, толщину, угол гиба и V-раскрытие матрицы.</div>
         </details>
 
         <details>
           <summary data-i18n="tech.s5">Авто-сортировка гибов по возрастанию упора</summary>
-          <div class="acc-body" data-i18n="tech.b5">
-            Оптимальный порядок гибки, при котором деталь не мешает сама себе и не упирается в инструмент. Сортировка выполняется автоматически с возможностью ручной правки.
-          </div>
+          <div class="acc-body" data-i18n="tech.b5">Оптимальный порядок гибки, при котором деталь не мешает сама себе и не упирается в инструмент. Сортировка выполняется автоматически с возможностью ручной правки.</div>
         </details>
 
         <details>
           <summary data-i18n="tech.s6">Отражение лицевой, смена упора, разворот заготовки</summary>
-          <div class="acc-body" data-i18n="tech.b6">
-            Инструменты быстрой правки задания: отражение детали по лицевой стороне, смена базы упора, разворот заготовки — без повторного импорта файла.
-          </div>
+          <div class="acc-body" data-i18n="tech.b6">Инструменты быстрой правки задания: отражение детали по лицевой стороне, смена базы упора, разворот заготовки — без повторного импорта файла.</div>
         </details>
 
         <details>
           <summary data-i18n="tech.s7">Кастомные размеры траверсы, станины, задних стоек с вырезами</summary>
-          <div class="acc-body" data-i18n="tech.b7">
-            Модель станка настраивается под ваш пресс: длина траверсы, габариты станины, положение задних стоек и вырезы в них. Это влияет на точность проверки коллизий.
-          </div>
+          <div class="acc-body" data-i18n="tech.b7">Модель станка настраивается под ваш пресс: длина траверсы, габариты станины, положение задних стоек и вырезы в них. Это влияет на точность проверки коллизий.</div>
         </details>
 
         <details>
           <summary data-i18n="tech.s8">Сечение заготовки плоскостью (визуальный срез)</summary>
-          <div class="acc-body" data-i18n="tech.b8">
-            Инструмент визуального среза позволяет заглянуть внутрь детали и проверить положение гибов, толщину материала и зоны, скрытые от камеры.
-          </div>
+          <div class="acc-body" data-i18n="tech.b8">Инструмент визуального среза позволяет заглянуть внутрь детали и проверить положение гибов, толщину материала и зоны, скрытые от камеры.</div>
         </details>
 
         <details>
           <summary data-i18n="tech.s9">HUD габаритов и массы детали</summary>
-          <div class="acc-body" data-i18n="tech.b9">
-            Постоянно видимая панель с габаритами детали, площадью развёртки и расчётной массой — например «582.8 × 632.2 × 43 мм, развёртка 0.388 м², ≈ 4.60 кг».
-          </div>
+          <div class="acc-body" data-i18n="tech.b9">Постоянно видимая панель с габаритами детали, площадью развёртки и расчётной массой — например «582.8 × 632.2 × 43 мм, развёртка 0.388 м², ≈ 4.60 кг».</div>
         </details>
 
         <details>
           <summary data-i18n="tech.s10">Автопрогон всех гибов по порядку для проверки технологом</summary>
-          <div class="acc-body" data-i18n="tech.b10">
-            Один клик — и KONTUMA последовательно проигрывает все гибы задания. Технолог видит весь процесс целиком и может поймать проблему до передачи файла в цех.
-          </div>
+          <div class="acc-body" data-i18n="tech.b10">Один клик — и KONTUMA последовательно проигрывает все гибы задания. Технолог видит весь процесс целиком и может поймать проблему до передачи файла в цех.</div>
         </details>
 
       </div>
@@ -1816,7 +2160,7 @@ button,input{font-family:inherit;font-size:inherit}
             <li data-i18n="pr.f10">Неограниченное число планшетов операторов</li>
           </ul>
 
-          <a class="btn btn-primary btn-block" href="#cta" data-i18n="pr.buy">Купить</a>
+          <a class="btn btn-primary btn-block" href="mailto:kontumapro@gmail.com?subject=KONTUMA" data-buy="20000" data-buy-name="pr.n1" data-i18n="pr.buy">Купить</a>
         </div>
 
         <!-- ПАРНЫЙ -->
@@ -1838,7 +2182,7 @@ button,input{font-family:inherit;font-size:inherit}
             <li data-i18n="pr.f10">Неограниченное число планшетов операторов</li>
           </ul>
 
-          <a class="btn btn-primary btn-block" href="#cta" data-i18n="pr.buy">Купить</a>
+          <a class="btn btn-primary btn-block" href="mailto:kontumapro@gmail.com?subject=KONTUMA" data-buy="25000" data-buy-name="pr.n2" data-i18n="pr.buy">Купить</a>
         </div>
 
         <!-- ЦЕХОВОЙ -->
@@ -1861,7 +2205,7 @@ button,input{font-family:inherit;font-size:inherit}
             <li data-i18n="pr.f10">Неограниченное число планшетов операторов</li>
           </ul>
 
-          <a class="btn btn-primary btn-block" href="#cta" data-i18n="pr.buy">Купить</a>
+          <a class="btn btn-primary btn-block" href="mailto:kontumapro@gmail.com?subject=KONTUMA" data-buy="35000" data-buy-name="pr.n3" data-i18n="pr.buy">Купить</a>
         </div>
 
       </div>
@@ -1870,7 +2214,6 @@ button,input{font-family:inherit;font-size:inherit}
         <li data-i18n="pr.note1">Все цены указаны без НДС.</li>
         <li data-i18n="pr.note2">Лицензия бессрочная, обновления включены на 1 год.</li>
         <li data-i18n="pr.note3">Продление обновлений — 15% от стоимости в год (можно не продлевать — программа продолжит работать на текущей версии).</li>
-        <li data-i18n="pr.note4">Возврат денег в течение 30 дней без вопросов.</li>
         <li data-i18n="pr.note5">Пробный период 14 дней — бесплатно, без карты.</li>
       </ul>
     </div>
@@ -1902,7 +2245,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="roi-field">
               <label for="roiCost" data-i18n="roi.f2">Стоимость одной детали (материал + работа), ₽</label>
               <div class="roi-slider-row">
-                <input type="range" id="roiCost" min="100" max="50000" step="100" value="800" aria-label="Стоимость одной детали в рублях" data-i18n-aria="roi.f2">
+                <input type="range" id="roiCost" min="100" max="50000" step="100" value="800" aria-label="Стоимость одной детали (материал + работа), ₽" data-i18n-aria="roi.f2">
                 <output class="roi-val" id="roiCostVal" for="roiCost">800 ₽</output>
               </div>
             </div>
@@ -1910,7 +2253,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="roi-field">
               <label for="roiDefect" data-i18n="roi.f3">Процент брака сейчас, %</label>
               <div class="roi-slider-row">
-                <input type="range" id="roiDefect" min="0" max="30" step="0.5" value="5" aria-label="Процент брака сейчас" data-i18n-aria="roi.f3">
+                <input type="range" id="roiDefect" min="0" max="30" step="0.5" value="5" aria-label="Процент брака сейчас, %" data-i18n-aria="roi.f3">
                 <output class="roi-val" id="roiDefectVal" for="roiDefect">5 %</output>
               </div>
             </div>
@@ -1926,7 +2269,7 @@ button,input{font-family:inherit;font-size:inherit}
             <div class="roi-field">
               <label for="roiRate" data-i18n="roi.f5">Ставка технолога, ₽/час</label>
               <div class="roi-slider-row">
-                <input type="range" id="roiRate" min="300" max="3000" step="50" value="800" aria-label="Ставка технолога в рублях в час" data-i18n-aria="roi.f5">
+                <input type="range" id="roiRate" min="300" max="3000" step="50" value="800" aria-label="Ставка технолога, ₽/час" data-i18n-aria="roi.f5">
                 <output class="roi-val" id="roiRateVal" for="roiRate">800 ₽/ч</output>
               </div>
             </div>
@@ -1935,17 +2278,17 @@ button,input{font-family:inherit;font-size:inherit}
               <legend data-i18n="roi.legend">Число устройств</legend>
               <div class="roi-tiles-row">
                 <label class="roi-tile checked">
-                  <input type="radio" name="roiSeats" value="20000" checked aria-label="1 устройство за 20 000 рублей" data-i18n-aria="roi.s1">
+                  <input type="radio" name="roiSeats" value="20000" checked aria-label="1 устройство" data-i18n-aria="roi.s1">
                   <span class="roi-tile-name" data-i18n="roi.s1">1 устройство</span>
                   <span class="roi-tile-price" data-i18n="roi.sp1">20 000 ₽</span>
                 </label>
                 <label class="roi-tile">
-                  <input type="radio" name="roiSeats" value="25000" aria-label="2 устройства за 25 000 рублей" data-i18n-aria="roi.s2">
+                  <input type="radio" name="roiSeats" value="25000" aria-label="2 устройства" data-i18n-aria="roi.s2">
                   <span class="roi-tile-name" data-i18n="roi.s2">2 устройства</span>
                   <span class="roi-tile-price" data-i18n="roi.sp2">25 000 ₽</span>
                 </label>
                 <label class="roi-tile">
-                  <input type="radio" name="roiSeats" value="35000" aria-label="4 устройства за 35 000 рублей" data-i18n-aria="roi.s4">
+                  <input type="radio" name="roiSeats" value="35000" aria-label="4 устройства" data-i18n-aria="roi.s4">
                   <span class="roi-tile-tag" data-i18n="roi.tag">Выгодно</span>
                   <span class="roi-tile-name" data-i18n="roi.s4">4 устройства</span>
                   <span class="roi-tile-price" data-i18n="roi.sp4">35 000 ₽</span>
@@ -1972,7 +2315,7 @@ button,input{font-family:inherit;font-size:inherit}
               <span class="roi-label" data-i18n="roi.r4">Цена лицензии</span>
               <span class="roi-num neutral" id="roiPrice">20 000 ₽</span>
             </div>
-            <a class="btn btn-primary btn-block" href="#cta" data-i18n="roi.buy">Купить</a>
+            <a class="btn btn-primary btn-block" href="mailto:kontumapro@gmail.com?subject=KONTUMA" data-buy-roi data-i18n="roi.buy">Купить</a>
           </div>
         </div>
 
@@ -2041,7 +2384,12 @@ button,input{font-family:inherit;font-size:inherit}
 
         <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
 
-        <p class="cta-fine" data-i18n="cta.fine">14 дней бесплатно · без карты </p>
+        <p class="cta-mail">
+          <span data-i18n="cta.mailHint">Или напишите напрямую на</span>
+          <a href="mailto:kontumapro@gmail.com?subject=KONTUMA">kontumapro@gmail.com</a>
+        </p>
+
+        <p class="cta-fine" data-i18n="cta.fine">14 дней бесплатно · без карты</p>
       </div>
     </div>
   </section>
@@ -2078,7 +2426,6 @@ button,input{font-family:inherit;font-size:inherit}
         <h4 data-i18n="foot.contacts">Контакты</h4>
         <ul>
           <li><a href="mailto:kontumapro@gmail.com">kontumapro@gmail.com</a></li>
-          <li><a href="tel:+78000000000">+7 (800) 000-00-00</a></li>
           <li><a href="#cta" data-i18n="cta.submit">Оставить заявку</a></li>
         </ul>
       </div>
@@ -2105,6 +2452,45 @@ button,input{font-family:inherit;font-size:inherit}
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
 </button>
 
+<!-- МОДАЛЬНОЕ ОКНО: ВЫБОР ИСТОЧНИКА ЗАГРУЗКИ -->
+<div class="dl-modal" id="dlModal" role="dialog" aria-modal="true" aria-labelledby="dlTitle" aria-describedby="dlSub" aria-hidden="true">
+  <div class="dl-backdrop" data-dl-close></div>
+  <div class="dl-dialog">
+    <button class="dl-close" type="button" data-dl-close aria-label="Закрыть" data-i18n-aria="dl.close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+
+    <h3 id="dlTitle" data-i18n="dl.title">Скачать KONTUMA</h3>
+    <p class="dl-sub" id="dlSub" data-i18n="dl.sub">Версии на обоих источниках одинаковые и всегда последние — выбирайте, откуда удобнее.</p>
+
+    <div class="dl-opts">
+      <a class="dl-opt" href="https://github.com/KoksaSa/Kontuma/releases/latest" target="_blank" rel="noopener">
+        <span class="dl-opt-icon">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A7.995 7.995 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        </span>
+        <span class="dl-opt-text">
+          <span class="dl-opt-title" data-i18n="dl.gh">GitHub Releases</span>
+          <span class="dl-opt-desc" data-i18n="dl.ghDesc">Прямая загрузка установщика со страницы релиза</span>
+        </span>
+        <svg class="dl-opt-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <a class="dl-opt" href="https://disk.yandex.ru/d/S_vUAuxdE4RS3w" target="_blank" rel="noopener">
+        <span class="dl-opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 19a4.5 4.5 0 0 1-.4-8.98 6 6 0 0 1 11.6-1.02A4.2 4.2 0 0 1 18 19"/><path d="M12 8v8m0 0 3-3m-3 3-3-3"/></svg>
+        </span>
+        <span class="dl-opt-text">
+          <span class="dl-opt-title" data-i18n="dl.yd">Яндекс Диск</span>
+          <span class="dl-opt-desc" data-i18n="dl.ydDesc">Скачивание через Яндекс Диск, удобно для российских сетей</span>
+        </span>
+        <svg class="dl-opt-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <p class="dl-note" data-i18n="dl.note">Windows 10 или 11 · установка за 5 минут · 14 дней бесплатно, без карты. Вопросы по установке — на kontumapro@gmail.com.</p>
+  </div>
+</div>
+
 <script>
 (function () {
   'use strict';
@@ -2112,8 +2498,8 @@ button,input{font-family:inherit;font-size:inherit}
   /* ---------- Словарь переводов RU / EN ---------- */
   var I18N = {
     ru: {
-      'meta.title': 'KONTUMA — гибка без переделок | Приложение для Windows: симуляция гибки листового металла',
-      'meta.description': 'KONTUMA — приложение для Windows: подготовка и симуляция гибки листового металла на листогибочных прессах с ЧПУ. От DXF/STEP до карты гибки и планшета оператора за 2 минуты.',
+      'meta.title': 'KONTUMA — симуляция гибки листового металла | Приложение для Windows',
+      'meta.description': 'KONTUMA — приложение для Windows: подготовка и симуляция гибки листового металла на листогибочных прессах с ЧПУ. От DXF/STEP до карты гибки за 2 минуты. От 20 000 ₽, бессрочная лицензия.',
       'nav.features': 'Возможности', 'nav.interfaces': 'Интерфейсы', 'nav.tech': 'Технологии', 'nav.pricing': 'Цены', 'nav.faq': 'FAQ',
       'header.cta': 'Попробовать бесплатно',
       'hero.badge': 'B2B · Листогибочные прессы с ЧПУ',
@@ -2169,7 +2555,7 @@ button,input{font-family:inherit;font-size:inherit}
       'exp.i2h': 'Excel-таблица гибов', 'exp.i2s': 'Для MES / ERP',
       'exp.i3h': 'Файл задания .opjob', 'exp.i3s': 'Для планшета оператора',
       'exp.i4h': 'Скриншот 3D-вида', 'exp.i4s': 'PNG для КП и документации',
-      'exp.figcap': 'PDF-паспорт: профили инструмента, развёртка с номерами гибов, габариты, масса и фото каждого гиба',
+      'exp.figcap': 'Как это выглядит в работе: импорт DXF/STEP, 3D-гиб с проверкой коллизий, экспорт паспорта и файла для оператора',
       'tech.eyebrow': 'Технические возможности', 'tech.h2': 'Что под капотом',
       'tech.p': 'Детали, которые важны технологу и инженеру-технологу производства.',
       'tech.s1': 'Поддержка DXF (LINE, LWPOLYLINE, ARC, CIRCLE)',
@@ -2207,7 +2593,6 @@ button,input{font-family:inherit;font-size:inherit}
       'pr.note1': 'Все цены указаны без НДС.',
       'pr.note2': 'Лицензия бессрочная, обновления включены на 1 год.',
       'pr.note3': 'Продление обновлений — 15% от стоимости в год (можно не продлевать — программа продолжит работать на текущей версии).',
-      'pr.note4': 'Возврат денег в течение 30 дней без вопросов.',
       'pr.note5': 'Пробный период 14 дней — бесплатно, без карты.',
       'roi.eyebrow': 'Калькулятор окупаемости', 'roi.h2': 'Сколько вы теряете без KONTUMA',
       'roi.p': 'Подвиньте ползунки — увидите, за сколько месяцев программа окупится именно в вашем цеху.',
@@ -2236,18 +2621,36 @@ button,input{font-family:inherit;font-size:inherit}
       'cta.p': 'Оставьте email — пришлём доступ к демо-стенду и покажем KONTUMA на вашей детали.',
       'cta.ph': 'ваш@email.ru', 'cta.submit': 'Оставить заявку',
       'cta.fine': '14 дней бесплатно · без карты',
+      'cta.mailHint': 'Или напишите напрямую на',
       'form.err': 'Проверьте адрес email — кажется, там опечатка.',
-      'form.ok': 'Спасибо! Заявка принята — свяжемся в течение рабочего дня.',
+      'form.ok': 'Открыли почтовый клиент — отправьте письмо, и мы пришлём доступ к демо.',
+      'form.subject': 'Запрос демо-доступа KONTUMA',
+      'form.body': 'Прошу прислать доступ к демо KONTUMA и показать программу на моей детали.',
+      'form.email': 'Мой email',
+      'buy.subject': 'Заявка на лицензию KONTUMA: {p}',
+      'buy.hello': 'Здравствуйте!',
+      'buy.request': 'Прошу выставить счёт на лицензию и прислать реквизиты для оплаты.',
+      'buy.license': 'Лицензия',
+      'buy.calc': 'Мой расчёт окупаемости с сайта:',
+      'buy.from': 'Отправлено с сайта koksasa.github.io/Kontuma',
       'foot.brand': 'Система подготовки и симуляции гибки листового металла на листогибочных прессах с ЧПУ. Полноценное приложение для Windows.',
       'foot.product': 'Продукт', 'foot.contacts': 'Контакты', 'foot.docs': 'Документы',
       'foot.privacy': 'Политика конфиденциальности', 'foot.terms': 'Пользовательское соглашение',
       'foot.copy': '© 2025 KONTUMA. Все права защищены.', 'foot.vat': 'Цены указаны без НДС.',
       'aria.top': 'Наверх',
+      'dl.title': 'Скачать KONTUMA',
+      'dl.sub': 'Версии на обоих источниках одинаковые и всегда последние — выбирайте, откуда удобнее.',
+      'dl.gh': 'GitHub Releases',
+      'dl.ghDesc': 'Прямая загрузка установщика со страницы релиза',
+      'dl.yd': 'Яндекс Диск',
+      'dl.ydDesc': 'Скачивание через Яндекс Диск, удобно для российских сетей',
+      'dl.close': 'Закрыть',
+      'dl.note': 'Windows 10 или 11 · установка за 5 минут · 14 дней бесплатно, без карты. Вопросы по установке — на kontumapro@gmail.com.',
       'shot.dxf': 'kontuma — импорт детали', 'shot.tooling': 'kontuma — библиотека матриц',
       'shot.autoplace': 'kontuma — авто-расстановка', 'shot.sim': 'kontuma — 3D-симуляция гибки',
       'shot.warn': 'kontuma — предупреждения', 'shot.force': 'kontuma — усилие гибки',
       'shot.cyclo': 'kontuma — циклограмма', 'shot.viewer': 'kontuma viewer — планшет оператора',
-      'shot.step': 'KONTUMA — предпросмотр STEP', 'shot.pdf': 'KONTUMA — PDF-паспорт гибки, стр. 1',
+      'shot.step': 'KONTUMA — предпросмотр STEP', 'shot.demo': 'KONTUMA — демо: импорт DXF → 3D-гиб → файл оператору',
       'alt.dxf': 'Импорт DXF в KONTUMA: панель загрузки файла и таблица гибов детали detail.dxf',
       'alt.tooling': 'Библиотека инструмента KONTUMA: папки с превью матриц и таблица «Матрицы на станке»',
       'alt.autoplace': 'Авто-расстановка штампов в KONTUMA: результат «Расстановка выполнена: 5 из 5 групп»',
@@ -2259,11 +2662,11 @@ button,input{font-family:inherit;font-size:inherit}
       'alt.editor': 'Редактор технолога KONTUMA: панель с деревьями «Матрица», «Пуансон», «Гибы» и 3D-вид станка с деталью',
       'alt.tablet': 'Планшет оператора KONTUMA viewer: плитки гибов с фото, счётчик «3/8», зелёный прогресс-бар и синяя кнопка «Готово»',
       'alt.step': 'Предпросмотр STEP в KONTUMA: 3D-модель детали с маркерами гибов и панель «Назначить грань → гиб»',
-      'alt.pdf': 'Первая страница PDF-паспорта гибки: профили пуансона и матрицы, развёртка с номерами гибов, габариты и масса детали'
+      'alt.demo': 'Демонстрация работы KONTUMA: импорт DXF, 3D-симуляция гиба на матрице и выдача файла для планшета оператора'
     },
     en: {
-      'meta.title': 'KONTUMA — bending without rework | Windows app: sheet metal bending simulation',
-      'meta.description': 'KONTUMA — a Windows app for preparing and simulating sheet metal bending on CNC press brakes. From DXF/STEP to a bend map and the operator tablet in 2 minutes.',
+      'meta.title': 'KONTUMA — bending simulation for CNC press brakes | Windows app',
+      'meta.description': 'KONTUMA — a Windows app to prepare and simulate sheet metal bending on CNC press brakes. From DXF/STEP to a bend map in 2 minutes. From ₽20,000, perpetual license.',
       'nav.features': 'Features', 'nav.interfaces': 'Interfaces', 'nav.tech': 'Technology', 'nav.pricing': 'Pricing', 'nav.faq': 'FAQ',
       'header.cta': 'Try for free',
       'hero.badge': 'B2B · CNC press brakes',
@@ -2319,7 +2722,7 @@ button,input{font-family:inherit;font-size:inherit}
       'exp.i2h': 'Excel bend table', 'exp.i2s': 'For MES / ERP',
       'exp.i3h': '.opjob job file', 'exp.i3s': 'For the operator tablet',
       'exp.i4h': '3D view screenshot', 'exp.i4s': 'PNG for quotes and documentation',
-      'exp.figcap': 'PDF passport: tooling profiles, flat pattern with bend numbers, dimensions, weight and a photo of every bend',
+      'exp.figcap': 'How it looks in action: DXF/STEP import, 3D bend with collision checking, export of the passport and the operator file',
       'tech.eyebrow': 'Technical capabilities', 'tech.h2': 'Under the hood',
       'tech.p': 'Details that matter to a production process engineer.',
       'tech.s1': 'DXF support (LINE, LWPOLYLINE, ARC, CIRCLE)',
@@ -2357,7 +2760,6 @@ button,input{font-family:inherit;font-size:inherit}
       'pr.note1': 'All prices exclude VAT.',
       'pr.note2': 'The license is perpetual; updates are included for 1 year.',
       'pr.note3': 'Renewing updates costs 15% of the price per year (you can skip it — the program keeps working on the current version).',
-      'pr.note4': '30-day money-back guarantee, no questions asked.',
       'pr.note5': '14-day trial — free, no card required.',
       'roi.eyebrow': 'Payback calculator', 'roi.h2': 'How much you lose without KONTUMA',
       'roi.p': 'Move the sliders — see in how many months the program pays for itself in your shop.',
@@ -2386,18 +2788,36 @@ button,input{font-family:inherit;font-size:inherit}
       'cta.p': 'Leave your email — we will send demo access and show KONTUMA on your part.',
       'cta.ph': 'your@email.com', 'cta.submit': 'Request access',
       'cta.fine': '14 days free · no card required',
+      'cta.mailHint': 'Or write to us directly at',
       'form.err': 'Please check the email address — it looks like a typo.',
-      'form.ok': 'Thank you! Your request has been received — we will get in touch within one business day.',
+      'form.ok': 'Opening your email client — send the message and we will send demo access.',
+      'form.subject': 'KONTUMA demo access request',
+      'form.body': 'Please send me access to the KONTUMA demo and show the app on my part.',
+      'form.email': 'My email',
+      'buy.subject': 'KONTUMA license request: {p}',
+      'buy.hello': 'Hello!',
+      'buy.request': 'Please send me an invoice and payment details for the license.',
+      'buy.license': 'License',
+      'buy.calc': 'My payback calculation from the website:',
+      'buy.from': 'Sent from koksasa.github.io/Kontuma',
       'foot.brand': 'A system for preparing and simulating sheet metal bending on CNC press brakes. A full-fledged Windows app.',
       'foot.product': 'Product', 'foot.contacts': 'Contacts', 'foot.docs': 'Documents',
       'foot.privacy': 'Privacy policy', 'foot.terms': 'Terms of service',
       'foot.copy': '© 2025 KONTUMA. All rights reserved.', 'foot.vat': 'Prices exclude VAT.',
       'aria.top': 'To top',
+      'dl.title': 'Download KONTUMA',
+      'dl.sub': 'Both sources always carry the same latest build — pick whichever is more convenient.',
+      'dl.gh': 'GitHub Releases',
+      'dl.ghDesc': 'Direct installer download from the release page',
+      'dl.yd': 'Yandex Disk',
+      'dl.ydDesc': 'Download over Yandex Disk, convenient for RU connections',
+      'dl.close': 'Close',
+      'dl.note': 'Windows 10 or 11 · 5-minute install · 14-day trial, no card required. Questions about installation — write to kontumapro@gmail.com.',
       'shot.dxf': 'kontuma — part import', 'shot.tooling': 'kontuma — die library',
       'shot.autoplace': 'kontuma — auto placement', 'shot.sim': 'kontuma — 3D bend simulation',
       'shot.warn': 'kontuma — warnings', 'shot.force': 'kontuma — bending force',
       'shot.cyclo': 'kontuma — cyclogram', 'shot.viewer': 'kontuma viewer — operator tablet',
-      'shot.step': 'KONTUMA — STEP preview', 'shot.pdf': 'KONTUMA — PDF bend passport, p. 1',
+      'shot.step': 'KONTUMA — STEP preview', 'shot.demo': 'KONTUMA — demo: DXF import → 3D bend → operator file',
       'alt.dxf': 'DXF import in KONTUMA: file loading panel and the bend table of detail.dxf',
       'alt.tooling': 'Tooling library in KONTUMA: die preview folders and the "Dies on the machine" table',
       'alt.autoplace': 'Automatic tool placement in KONTUMA: result "Placement complete: 5 of 5 groups"',
@@ -2409,7 +2829,7 @@ button,input{font-family:inherit;font-size:inherit}
       'alt.editor': 'KONTUMA engineer editor: panel with "Die", "Punch", "Bends" trees and a 3D machine view with the part',
       'alt.tablet': 'KONTUMA viewer operator tablet: bend cards with photos, a "3/8" counter, green progress bar and a blue "Done" button',
       'alt.step': 'STEP preview in KONTUMA: 3D part model with bend markers and the "Assign face → bend" panel',
-      'alt.pdf': 'First page of the PDF bend passport: punch and die profiles, flat pattern with bend numbers, part dimensions and weight'
+      'alt.demo': 'KONTUMA in action: DXF import, 3D bend simulation on the die and exporting the operator tablet file'
     }
   };
 
@@ -2542,6 +2962,19 @@ button,input{font-family:inherit;font-size:inherit}
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  /* ---------- Почта: заявка и заказ лицензии ---------- */
+  var MAILTO = 'mailto:kontumapro@gmail.com';
+
+  function mailtoUrl(subject, lines) {
+    return MAILTO +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(lines.join('\r\n'));
+  }
+
+  function openMailto(url) {
+    window.location.href = url;
+  }
+
   /* ---------- Форма заявки ---------- */
   var form = document.getElementById('ctaForm');
   var msg = document.getElementById('formMsg');
@@ -2560,9 +2993,81 @@ button,input{font-family:inherit;font-size:inherit}
       return;
     }
 
+    var t = I18N[currentLang];
+
+    openMailto(mailtoUrl(t['form.subject'], [
+      t['form.body'],
+      '',
+      t['form.email'] + ': ' + value,
+      '',
+      t['buy.from']
+    ]));
+
     msg.style.color = '#30d158';
-    msg.textContent = I18N[currentLang]['form.ok'];
+    msg.textContent = t['form.ok'];
     form.reset();
+  });
+
+  /* ---------- Кнопки «Купить»: письмо с тарифом и расчётом ---------- */
+  function roiSummary(t) {
+    var rows = [
+      { id: 'roiSaveMonth', label: t['roi.r1'] },
+      { id: 'roiSaveYear',  label: t['roi.r2'] },
+      { id: 'roiPayback',   label: t['roi.r3'] }
+    ];
+    var lines = [];
+
+    rows.forEach(function (row) {
+      var el = document.getElementById(row.id);
+      var val = el ? (el.textContent || '').trim() : '';
+      if (val && val !== '—') { lines.push('— ' + row.label + ': ' + val); }
+    });
+
+    return lines;
+  }
+
+  document.querySelectorAll('[data-buy], [data-buy-roi]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      var t = I18N[currentLang];
+      var price = 0;
+      var name = '';
+
+      if (btn.hasAttribute('data-buy-roi')) {
+        var checked = document.querySelector('input[name="roiSeats"]:checked');
+        if (checked) {
+          price = Number(checked.value) || 0;
+          var tile = checked.closest('.roi-tile');
+          var nameEl = tile && tile.querySelector('.roi-tile-name');
+          name = nameEl ? (nameEl.textContent || '').trim() : '';
+        }
+      } else {
+        price = Number(btn.getAttribute('data-buy')) || 0;
+        var key = btn.getAttribute('data-buy-name');
+        name = (key && I18N[currentLang][key]) || key || '';
+      }
+
+      var lines = [
+        t['buy.hello'],
+        '',
+        t['buy.request'],
+        '',
+        t['buy.license'] + ': ' + name + (price ? ' — ' + fmtMoney(price) : '')
+      ];
+
+      if (btn.hasAttribute('data-buy-roi')) {
+        var calc = roiSummary(t);
+        if (calc.length) {
+          lines.push('', t['buy.calc']);
+          lines = lines.concat(calc);
+        }
+      }
+
+      lines.push('', t['buy.from']);
+
+      openMailto(mailtoUrl(t['buy.subject'].replace('{p}', name || 'KONTUMA'), lines));
+    });
   });
 
   /* ---------- Калькулятор окупаемости ---------- */
@@ -2677,6 +3182,64 @@ button,input{font-family:inherit;font-size:inherit}
       });
     });
   });
+
+  /* ---------- Модальное окно выбора источника загрузки ---------- */
+  var dlModal = document.getElementById('dlModal');
+
+  if (dlModal) {
+    var dlLastFocus = null;
+
+    function dlOpen(trigger) {
+      dlLastFocus = trigger || document.activeElement;
+      dlModal.classList.add('open');
+      dlModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('dl-lock');
+      var first = dlModal.querySelector('.dl-opt');
+      if (first) { first.focus(); }
+    }
+
+    function dlClose() {
+      dlModal.classList.remove('open');
+      dlModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('dl-lock');
+      if (dlLastFocus && dlLastFocus.focus) { dlLastFocus.focus(); }
+    }
+
+    document.querySelectorAll('[data-download-open]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        dlOpen(btn);
+      });
+    });
+
+    dlModal.querySelectorAll('[data-dl-close]').forEach(function (el) {
+      el.addEventListener('click', dlClose);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!dlModal.classList.contains('open')) { return; }
+
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        dlClose();
+        return;
+      }
+
+      /* ловушка фокуса внутри диалога */
+      if (e.key === 'Tab') {
+        var focusable = dlModal.querySelectorAll('a[href],button:not([disabled])');
+        if (!focusable.length) { return; }
+        var firstEl = focusable[0];
+        var lastEl = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        } else if (!e.shiftKey && document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    });
+  }
 
   /* ---------- Мягкий переход для внутренних ссылок ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
